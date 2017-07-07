@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -36,6 +37,9 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'admin.login'
 
     // 用户模块
     Route::resource('user','UserController');
+
+    // 分类模块
+    Route::resource('cate','CateController');
 
     // 网站配置
     Route::resource('config','ConfigController');

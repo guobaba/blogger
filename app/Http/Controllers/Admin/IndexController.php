@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+
 use App\Http\Model\User;
 use Illuminate\Support\Facades\Crypt;
 use Validator;
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Input;
 
 class IndexController extends Controller
 {
+
     // 退出登录
     public function quit()
     {
@@ -58,5 +60,6 @@ class IndexController extends Controller
         }else{
             return back()->witherrors($v);
         }
+
     }
 }

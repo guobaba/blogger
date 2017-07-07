@@ -13,7 +13,7 @@
 		</div>
 		<div class="top_right">
 			<ul>
-				<li>管理员：admin</li>
+				<li>管理员：{{session('username')}}</li>
 				<li><a href="{{url('admin/repass')}}" target="main">修改密码</a></li>
 				<li><a href="{{url('admin/quit')}}">退出</a></li>
 			</ul>
@@ -32,12 +32,12 @@
                 </ul>
             </li>
 			<li>
-				<h3><i class="fa fa-fw fa-clipboard"></i>分类操作</h3>
-				<ul class="sub_menu">
-					<li><a href="{{url('admin/user/create')}}" target="main"><i class="fa fa-fw fa-plus-square"></i>添加分类</a></li>
-					<li><a href="{{url('admin/user')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>分类列表</a></li>
-				</ul>
-			</li>
+            	<h3><i class="fa fa-fw fa-clipboard"></i>分类管理</h3>
+                <ul class="sub_menu">
+                    <li><a href="{{url('admin/cate/create')}}" target="main"><i class="fa fa-fw fa-plus-square"></i>添加分类</a></li>
+                    <li><a href="{{url('admin/cate')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>分类列表</a></li> 
+                </ul>
+            </li>
             <li>
             	<h3><i class="fa fa-fw fa-cog"></i>系统设置</h3>
                 <ul class="sub_menu">

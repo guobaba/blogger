@@ -1,5 +1,6 @@
 <?php
-namespace App   \Org\code;
+namespace App\Org\code;
+
 use Session;
 
 class Code{

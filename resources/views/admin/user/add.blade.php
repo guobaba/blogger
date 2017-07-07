@@ -11,9 +11,6 @@
 	<div class="result_wrap">
         <div class="result_title">
             <h3>快捷操作</h3>
-            @if(session('error'))
-              <p style="background:#C40D0D ">  {{session('error')}}</p>
-            @endif
         </div>
         <div class="result_content">
             <div class="short_wrap">
@@ -57,7 +54,6 @@
                             <span><i class="fa fa-exclamation-circle yellow"></i>这里是默认长度</span>
                         </td>
                     </tr>
-
                     <tr>
                         <th></th>
                         <td>

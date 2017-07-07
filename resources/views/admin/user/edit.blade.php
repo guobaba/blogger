@@ -51,7 +51,6 @@
                             <span><i class="fa fa-exclamation-circle yellow"></i>这里是默认长度</span>
                         </td>
                     </tr>
-
                     <tr>
                         <th></th>
                         <td>
@@ -64,3 +63,18 @@
         </form>
     </div>
 @endsection
+
+                            
+                     
+                      
+                            
+                        
+                     
+                    
+                    
+                    
+                    
+                   
+                        
+                    
+>>>>>>> origin/zxn
