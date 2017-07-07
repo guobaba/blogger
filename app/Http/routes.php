@@ -33,5 +33,9 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'admin.login'
 
     // 用户模块
     Route::resource('user','UserController');
+
+    // 友情链接
+    Route::resource('link','LinkController');
+    Route::any('link/changeorder','LinkController@changeOrder');
 });
 

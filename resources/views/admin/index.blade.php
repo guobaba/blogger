@@ -38,6 +38,14 @@
 					<li><a href="{{url('admin/user')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>分类列表</a></li>
 				</ul>
 			</li>
+			<li>
+				<h3><i class="fa fa-fw fa-clipboard"></i>友情链接操作</h3>
+				<ul class="sub_menu">
+					<li><a href="{{url('admin/link/create')}}" target="main"><i class="fa fa-fw fa-plus-square"></i>添加友情链接</a></li>
+					<li><a href="{{url('admin/link')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>友情链接列表</a></li>
+
+				</ul>
+			</li>
             <li>
             	<h3><i class="fa fa-fw fa-cog"></i>系统设置</h3>
                 <ul class="sub_menu">
