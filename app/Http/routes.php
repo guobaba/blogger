@@ -26,6 +26,9 @@ Route::post('/admin/dologin','Admin\LoginController@dologin');
 Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'admin.login'],function(){
     // 退出登录
     Route::get('quit','IndexController@quit');
+    // 修改密码
+    Route::get('repass','IndexController@repass');
+    Route::post('dorepass','IndexController@dorepass');
 
     // 后台首页
     Route::get('index','LoginController@index');
@@ -33,5 +36,9 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'admin.login'
 
     // 用户模块
     Route::resource('user','UserController');
+
+    // 网站配置
+    Route::resource('config','ConfigController');
+    Route::any('config/changeorder','ConfigController@changeOrder');
 });
 

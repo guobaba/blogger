@@ -63,36 +63,41 @@ class UserController extends Controller
             'user_pass'=>'required|between:6,18'
         ];
         // 提示信息
-        $ress=[
+        $mess=[
             'user_name.required'=>'必须输入用户名',
             'user_name.between'=>'用户名长度必须在6-18位之间',
             'user_pass.required'=>'必须输入密码',
             'user_pass.between'=>'密码长度必须在6-18位之间'
         ];
 
-        $validator = Validator::make($input,$role,$ress);
+        $validator = Validator::make($input,$role,$mess);
 
        // dd($validator->passes());
         if($validator->passes()){
-            // 通过用户模型添加到数据库
-            // 通过模型添加数据有两种方式  save create
-            // 第一种
-            $user = new User();
-            $user->user_name = $input['user_name'];
-//            $user->user_pass = Crypt::encrypt($input['user_pass']);
-//            $re = $user->save();
-//            if($re){
-//                echo "添加成功";
-//            }else{
-//                echo "添加失败";
-//            }
-            // 添加的第二种方式
-            $input['user_pass'] = Crypt::encrypt($input['user_pass']);
-            $re = User::create($input);
-            if($re){
-                return redirect('admin/user');
+            $res = User::where('user_name',$request->user_name)->first();
+            if($res){
+                return back()->with('error','用户名已存在');
             }else{
-                return back()->with('error','添加失败');
+                // 通过用户模型添加到数据库
+                // 通过模型添加数据有两种方式  save create
+                // 第一种
+                 $user = new User();
+                 $user->user_name = $input['user_name'];
+//               $user->user_pass = Crypt::encrypt($input['user_pass']);
+//               $re = $user->save();
+//                if($re){
+//                   echo "添加成功";
+//                }else{
+//                   echo "添加失败";
+//                }
+                // 添加的第二种方式
+                $input['user_pass'] = Crypt::encrypt($input['user_pass']);
+                $re = User::create($input);
+                if($re){
+                    return redirect('admin/user');
+                }else{
+                    return back()->with('error','添加失败');
+                }
             }
         }else{
             // 返回到添加页面
@@ -145,17 +150,22 @@ class UserController extends Controller
             'user_name.required'=>'必须输入用户名',
             'user_name.between'=>'用户名长度必须在6-18位之间',
         ];
-        // 表单验证
+        // 表单验证  select user_name from blog_user where user_name = "$input[user_name]"
         $validator = Validator::make($input,$role,$ress);
         if($validator->passes()){
-            $re = User::where('user_id',$id)->update($input);
-            // 更新是否成功
-            if($re){
-                // 如果成功,返回到用户列表页
-                return redirect('admin/user');
+            $res = User::where('user_name',$request->user_name)->first();
+            if($res){
+                return back()->with('error','用户名已存在');
             }else{
-                // 如果失败,返回去
-                return back()->with('error','修改失败');
+                $re = User::where('user_id',$id)->update($input);
+                // 更新是否成功
+                if($re){
+                    // 如果成功,返回到用户列表页
+                    return redirect('admin/user');
+                }else{
+                    // 如果失败,返回去
+                    return back()->with('error','修改失败');
+                }
             }
         }else{
             // 没有通过表单验证

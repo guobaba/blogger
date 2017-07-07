@@ -14,7 +14,7 @@
 		<div class="top_right">
 			<ul>
 				<li>管理员：admin</li>
-				<li><a href="pass.html" target="main">修改密码</a></li>
+				<li><a href="{{url('admin/repass')}}" target="main">修改密码</a></li>
 				<li><a href="{{url('admin/quit')}}">退出</a></li>
 			</ul>
 		</div>
@@ -41,8 +41,8 @@
             <li>
             	<h3><i class="fa fa-fw fa-cog"></i>系统设置</h3>
                 <ul class="sub_menu">
-                    <li><a href="#" target="main"><i class="fa fa-fw fa-cubes"></i>网站配置</a></li>
-                    <li><a href="#" target="main"><i class="fa fa-fw fa-database"></i>备份还原</a></li>
+                    <li><a href="{{url('admin/config/create')}}" target="main"><i class="fa fa-fw fa-cubes"></i>添加配置</a></li>
+                    <li><a href="{{url('admin/config')}}" target="main"><i class="fa fa-fw fa-database"></i>网站配置</a></li>
                 </ul>
             </li>
             <li>

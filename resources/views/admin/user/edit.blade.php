@@ -26,6 +26,19 @@
     <!--结果集标题与导航组件 结束-->
     
     <div class="result_wrap">
+        @if (count($errors) > 0)
+            <div class="mark" style="color:red">
+                <ul>
+                    @if(is_object($errors))
+                        @foreach ($errors->all() as $errors)
+                            <li>{{ $errors }}</li>
+                        @endforeach
+                    @else
+                        <li>{{ $errors }}</li>
+                    @endif
+                </ul>
+            </div>
+        @endif
         <form action="{{url('admin/user/'.$data->user_id)}}" method="post">
             <table class="add_tab">
                 <tbody>
