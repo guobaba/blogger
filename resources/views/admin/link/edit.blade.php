@@ -5,7 +5,7 @@
         <!--<i class="fa fa-bell"></i> 欢迎使用登陆网站后台，建站的首选工具。-->
         <i class="fa fa-home"></i> <a href="#">首页</a> &raquo; <a href="#">友情链接管理</a> &raquo; 添加友情链接
     </div>
-    <!--面包屑导航 结束-->
+ 
 
     <div class="result_wrap">
         <form action="{{url('admin/link/'.$data->link_id)}}" method="post">
