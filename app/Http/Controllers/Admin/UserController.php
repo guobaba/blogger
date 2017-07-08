@@ -198,4 +198,15 @@ class UserController extends Controller
         }
         return $data;
     }
+
+
+    public function personal(Request $request)
+    {
+      // $user= User::where('user_id',21)->first();
+      // $personal= $user->personal()->first();//$user['user_id']
+//       dd($personal);
+        return view('admin.user.personal');
+
+
+    }
 }

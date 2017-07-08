@@ -58,7 +58,7 @@
                             </td>
                             <td>
                                 <a href="#">{{$v->conf_id}}</a>
-                            </td>z
+                            </td>
                             <td>{{$v->conf_title}}</td>
                             <td>{{$v->conf_name}}</td>
                             <td>

@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Input;
 
 class IndexController extends Controller
 {
-
     // 退出登录
     public function quit()
     {

@@ -31,12 +31,15 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'admin.login'
     Route::get('repass','IndexController@repass');
     Route::post('dorepass','IndexController@dorepass');
 
+
     // 后台首页
     Route::get('index','LoginController@index');
     Route::get('info','LoginController@info');
 
     // 用户模块
     Route::resource('user','UserController');
+    // 查看个人信息
+    Route::get('personal','UserController@personal');
 
 
     // 分类模块
@@ -52,4 +55,3 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'admin.login'
     Route::resource('link','LinkController');
     Route::any('link/changeorder','LinkController@changeOrder');
 });
-
