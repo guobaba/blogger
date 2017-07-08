@@ -38,6 +38,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'admin.login'
     // 用户模块
     Route::resource('user','UserController');
 
+
     // 分类模块
     Route::resource('cate','CateController');
 
@@ -47,5 +48,8 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'admin.login'
 
     // 网站配置内容修改路由
     Route::any('config/changecontent','ConfigController@changeContent');
+    // 友情链接
+    Route::resource('link','LinkController');
+    Route::any('link/changeorder','LinkController@changeOrder');
 });
 

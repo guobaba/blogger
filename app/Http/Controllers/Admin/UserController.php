@@ -124,6 +124,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+
         // 找到要修改的用户记录,返回给修改页面
         $data = User::where('user_id',$id)->first();
         return view('admin.user.edit',compact('data'));
