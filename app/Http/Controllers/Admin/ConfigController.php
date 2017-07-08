@@ -11,8 +11,21 @@ use Illuminate\Support\Facades\Input;
 
 class ConfigController extends Controller
 {
+    public function changeContent(Request $request)
+    {
+//        dd($request->all());
+        $input = $request->except('_token');
+        foreach ($request['conf_id'] as $k=>$v){
+            Config::where('conf_id',$v)->update(['conf_content'=>$request['conf_content'][$k]]);
+        }
+        $this->putFile();
+        return redirect('admin/config');
+    }
+
+
     public function changeOrder(Request $request)
     {
+
         // 先找到要修改排序的记录
         $input = $request->except('_token');
 
@@ -33,15 +46,75 @@ class ConfigController extends Controller
         }
         return $data;
     }
+
+    public function putFile()
+    {
+        //读出config数据表中的conf_name,conf_content这两列数据
+        $arr = Config::lists('conf_content','conf_name')->all();
+//        dd($arr);
+        // 变成字符串形式
+        $str = '<?php return '.var_export($arr,true).';';
+        // 找到要写入的文件路径
+        $path = base_path().'/config/web.php';
+        file_put_contents($path,$str);
+
+        // 写入config/web.php文件
+    }
+    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = Config::orderBy('conf_order','asc')->get();
-        return view('admin.config.index',compact('data'));
+        // 如果请求携带keywords参数,说明是查询进入index方法的,否则是通过网站配置列表导航进入的
+        if($request->has('keywords')){
+            $key = trim($request->input('keywords'));
+            $data = Config::where('conf_title','like',"%".$key."%")->orderBy('conf_order','asc')->get();
+            return view('admin.config.index',['data'=>$data,'key'=>$key]);
+        }else{
+            // 查询出config表的所有数据
+            $data = Config::orderBy('conf_order','asc')->get();
+            foreach($data as $k=>$v){
+                switch($v->field_type){
+                    case 'input':
+                        $data[$k]->_content = ' <input type="text" class="lg" name="conf_content[]" value="'.$v->conf_content.'">';
+                        break;
+                    case 'textarea':
+                        $data[$k]->_content = '<textarea class="lg" name="conf_content[]" >'.$v->conf_content.'</textarea>';
+                        break;
+                    case 'radio':
+//                    1|开启,0|关闭,2|暂停
+//
+//                      <input type="radio" name="conf_content" value='1'>开启
+//                     <input type="radio" name="conf_content" value='0'>关闭
+                        $arr = explode(',',$v->field_value);
+//                    $arr = [
+//                        0=>'1|开启',    $n
+//                        1=>'0|关闭'
+//                    ]
+//                    $a =[
+//                        0=>'1',
+//                        1=>'开启',
+//                    ]
+                        $str = '';
+                        foreach($arr as $m=>$n){
+                            $a = explode('|',$n);
+                            $c = ($v->conf_content == $a[0])? ' checked': '';
+                            $str.= '<input type="radio" name="conf_content[]"'.$c.' value="'.$a[0].'">'.$a[1];
+                        }
+
+                        $data[$k]->_content = $str;
+
+                        break;
+                }
+            }
+            // 向前台模板传变量的第一种方法
+            return view('admin.config.index',compact('data'));
+        }
+
+
     }
 
     /**
@@ -112,7 +185,6 @@ class ConfigController extends Controller
         // 从请求中获取传过来的数据
         $input = Input::except('_token','_method');
         $re = $conf->update($input);
-
         if($re){
             // 如果添加成功跳转到分类列表页
             return redirect('admin/config');
@@ -130,7 +202,7 @@ class ConfigController extends Controller
     public function destroy($id)
     {
         // 删除对应id的用户
-        $re = Config::where('conf_id')->delete();
+        $re = Config::where('conf_id',$id)->delete();
         // 0表示成功 其他表示失败
         if($re){
             $data = [

@@ -44,5 +44,8 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'admin.login'
     // 网站配置
     Route::resource('config','ConfigController');
     Route::any('config/changeorder','ConfigController@changeOrder');
+
+    // 网站配置内容修改路由
+    Route::any('config/changecontent','ConfigController@changeContent');
 });
 

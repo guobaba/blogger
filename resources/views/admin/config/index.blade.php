@@ -24,7 +24,7 @@
     <!--结果页快捷搜索框 结束-->
 
     <!--搜索结果页面 列表 开始-->
-    <form action="#" method="post">
+
         <div class="result_wrap">
             <!--快捷导航 开始-->
             <div class="result_content">
@@ -39,12 +39,15 @@
 
         <div class="result_wrap">
             <div class="result_content">
+    <form action="{{url('admin/config/changecontent')}}" method="post">
+        {{csrf_field()}}
                 <table class="list_tab">
                     <tr>
                         <th class="tc">排序</th>
                         <th class="tc">ID</th>
                         <th>标题</th>
                         <th>名称</th>
+                        <th style="width: 300px;">内容</th>
                         <th>操作</th>
                     </tr>
 
@@ -55,17 +58,26 @@
                             </td>
                             <td>
                                 <a href="#">{{$v->conf_id}}</a>
-                            </td>
+                            </td>z
                             <td>{{$v->conf_title}}</td>
                             <td>{{$v->conf_name}}</td>
+                            <td>
+                                <input type="hidden" name="conf_id[]" value="{{$v->conf_id}}">
+                                {!! $v->_content !!}
+                            </td>
 
                             <td>
                                 <a href="{{url('admin/config/'.$v->conf_id.'/edit')}}">修改</a>
                                 <a href="javascript:;" onclick="Delconfig({{$v->conf_id}})">删除</a>
                             </td>
                         </tr>
-
                     @endforeach
+                    <tr>
+                        <td colspan="6">
+                            <input type="submit" value="提交">
+                            <input type="button" class="back" onclick="history.go(-1)" value="返回">
+                        </td>
+                    </tr>
                 </table>
 
             </div>
@@ -90,13 +102,12 @@
         }
 
 
-        function Delconfig(user_id){
+        function Delconfig(conf_id){
             //询问框
             layer.confirm('是否确认删除？', {
                 btn: ['确定','取消'] //按钮
             }, function(){
-                //           url ==> admin/user/{user}   http://project182.com/admin/user/2
-                $.post("{{url('admin/config/')}}/"+user_id,{'_method':'DELETE','_token':"{{csrf_token()}}"},function(data){
+                $.post("{{url('admin/config/')}}/"+conf_id,{'_method':'DELETE','_token':"{{csrf_token()}}"},function(data){
                     if(data.status == 0){
                         location.href = location.href;
                         layer.msg(data.msg, {icon: 6});

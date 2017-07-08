@@ -24,9 +24,8 @@
         </div>
     </div>
     <!--结果集标题与导航组件 结束-->
-
     <div class="result_wrap">
-        <form action="{{url('admin/config')}}" method="post" id="art_form">
+        <form action="{{url('admin/config/'.$data->conf_id)}}" method="post" id="art_form">
             <table class="add_tab">
                 <tbody>
                 <input type="hidden" name="_method" value="put">
@@ -40,7 +39,7 @@
                 <tr>
                     <th>名称：</th>
                     <td>
-                        <input type="text" name="conf_name" class="lg" value="value="{{$data->conf_url}}"">
+                        <input type="text" name="conf_name" class="lg" value="{{$data->conf_name}}">
                     </td>
                 </tr>
                 <tr>
@@ -67,7 +66,7 @@
                 <tr>
                     <th>说明：</th>
                     <td>
-                        <textarea name="conf_tips">{{$data->conf_title}}</textarea>
+                        <textarea name="conf_tips">{{$data->conf_tips}}</textarea>
                     </td>
                 </tr>
                 <tr>
@@ -82,6 +81,7 @@
         </form>
     </div>
     <script>
+        showTr();
         function showTr() {
            if($('input[name=field_type]:checked').val() == 'radio'){
                $('.field_value').show();

@@ -39,15 +39,22 @@
                     <tr>
                         <th>名称：</th>
                         <td>
-                            <input type="text" name="conf_name" class="lg" value="http://">
+                            <input type="text" name="conf_name" value="http://">
                         </td>
                     </tr>
                     <tr>
                         <th>类型：</th>
                         <td>
-                            <label for=""><input type="radio" name="field_type">input</label>
-                            <label for=""><input type="radio" name="field_type">textarea</label>
-                            <label for=""><input type="radio" name="field_type">radio</label>
+                            <label for=""><input type="radio" name="field_type" checked onclick="showTr()" value="input">input</label>
+                            <label for=""><input type="radio" name="field_type" onclick="showTr()" value="textarea">textarea</label>
+                            <label for=""><input type="radio" name="field_type" onclick="showTr()" value="radio">radio</label>
+                        </td>
+                    </tr>
+                    <tr class="field_value">
+                        <th>类型值：</th>
+                        <td>
+                            <input type="text" name="field_value" value="1|开启,0|关闭">
+                            <span><i class="fa fa-exclamation-circle yellow"></i>类型值只有在radio的情况下才需要配置.格式 1|开启,0|关闭</span>
                         </td>
                     </tr>
                     <tr>
@@ -73,4 +80,14 @@
             </table>
         </form>
     </div>
+    <script>
+        showTr();
+        function showTr() {
+            if($('input[name=field_type]:checked').val() == 'radio'){
+                $('.field_value').show();
+            }else{
+                $('.field_value').hide();
+            }
+        }
+    </script>
 @endsection
