@@ -58,7 +58,7 @@
                         <td>
                             <a href="#">{{$v->cate_id}}</a>
                         </td>
-                        <td>{{$v->_name}}</td>
+                        <td>{{$v->cate_name}}</td>
                         <td>{{$v->cate_title}}</td>
                         <td>{{$v->cate_view}}</td>
                         <td>
@@ -69,11 +69,23 @@
                     
                 @endforeach
                 </table>
+                 <?php
+                    $key = empty($key)?'':$key;
+                    ?>
+                <div class="page_list">
+                    {!! $data->appends(['keywords' => $key])->render() !!}
+                </div>
 
             </div>
         </div>
     </form>
     <!--搜索结果页面 列表 结束-->
+     <style>
+        .result_content ul li span{
+            foot-size:15px;
+            padding:6px 12px;
+        }
+    </style>
 
     <script>
 

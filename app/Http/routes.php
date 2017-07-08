@@ -40,6 +40,19 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'admin.login'
 
     // 分类模块
     Route::resource('cate','CateController');
+    Route::any('cate/changeorder','CateController@changeOrder');
+
+    //文章模块
+    Route::resource('article','ArticleController');
+    Route::any('article/changeorder','ArticleController@changeOrder');
+    Route::any('upload','ArticleController@upload');
+
+    //留言管理
+    Route::get('dis/index','DisController@index');
+    Route::any('dis/delete/{id}','DisController@delete');
+    Route::any('dis/insert/{id}','DisController@insert');
+    Route::any('dis/reply/{id}','DisController@reply');
+
 
     // 网站配置
     Route::resource('config','ConfigController');

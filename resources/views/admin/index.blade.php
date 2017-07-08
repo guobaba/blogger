@@ -13,7 +13,7 @@
 		</div>
 		<div class="top_right">
 			<ul>
-				<li>管理员：{{session('username')}}</li>
+				<li>{{session('user')->user_name}}</li>
 				<li><a href="{{url('admin/repass')}}" target="main">修改密码</a></li>
 				<li><a href="{{url('admin/quit')}}">退出</a></li>
 			</ul>
@@ -39,10 +39,31 @@
                 </ul>
             </li>
             <li>
+            	<h3><i class="fa fa-fw fa-clipboard"></i>文章管理</h3>
+                <ul class="sub_menu">
+                    <li><a href="{{url('admin/article/create')}}" target="main"><i class="fa fa-fw fa-plus-square"></i>添加文章</a></li>
+                    <li><a href="{{url('admin/article')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>文章列表</a></li> 
+                </ul>
+            </li>
+            <li>
+            	<h3><i class="fa fa-fw fa-clipboard"></i>留言管理</h3>
+                <ul class="sub_menu">
+                    
+                    <li><a href="{{url('admin/dis/index')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>留言列表</a></li> 
+                </ul>
+            </li>
+            <li>
             	<h3><i class="fa fa-fw fa-cog"></i>系统设置</h3>
                 <ul class="sub_menu">
                     <li><a href="{{url('admin/config/create')}}" target="main"><i class="fa fa-fw fa-cubes"></i>添加配置</a></li>
                     <li><a href="{{url('admin/config')}}" target="main"><i class="fa fa-fw fa-database"></i>网站配置</a></li>
+                </ul>
+            </li>
+            <li>
+            	<h3><i class="fa fa-fw fa-cog"></i>广告管理</h3>
+                <ul class="sub_menu">
+                    <li><a href="{{url('admin/config/create')}}" target="main"><i class="fa fa-fw fa-cubes"></i>添加广告</a></li>
+                    <li><a href="{{url('admin/config')}}" target="main"><i class="fa fa-fw fa-database"></i>广告列表</a></li>
                 </ul>
             </li>
             <li>
