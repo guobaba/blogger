@@ -41,14 +41,14 @@ class LoginController extends Controller
             'password'=>'required|between:6,18'
         ];
         // 提示信息
-        $ress=[
+        $mess=[
             'username.required'=>'必须输入用户名',
             'username.between'=>'用户名长度必须在6-18位之间',
             'password.required'=>'必须输入密码',
             'password.between'=>'密码长度必须在6-18位之间'
         ];
 //        表单验证
-        $validator = Validator::make($input,$role,$ress);
+        $validator = Validator::make($input,$role,$mess);
         if($validator->passes()){
             // 验证验证码
             if(strtoupper($input['code']) !=  session('code')){
