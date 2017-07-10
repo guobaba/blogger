@@ -67,4 +67,8 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'admin.login'
     // 友情链接
     Route::resource('link','LinkController');
     Route::any('link/changeorder','LinkController@changeOrder');
+
+    // 网站导航
+    Route::resource('nav','NavController');
+    Route::any('nav/changeorder','NavController@changeOrder');
 });
