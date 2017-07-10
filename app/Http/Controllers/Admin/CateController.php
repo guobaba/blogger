@@ -42,13 +42,23 @@ class CateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
 //        $cate = Cate::orderBy('cate_order','asc')->get();
-
-        $cate = (new  Cate)->tree();
+//        if($request ->has('keywords')){
+           if($request ->has('keywords')){
+            $key = trim($request->input('keywords'));
+            
+           // dd($key);
+            $cate = Cate::where('cate_name','like',"%".$key."%")->paginate(2);
+             return view('admin.cate.index',['data'=>$cate,'key'=>$key]);
+        }else{
+            $cate = Cate::orderBy('cate_id','asc')->paginate(2);
+            return view('admin.cate.index',['data'=>$cate]);  
+        }
+        //$cate = (new  Cate)->tree();
 //        dd($cate);
-        return view('admin.cate.index',['data'=>$cate]);
+        
     }
 
     /**
