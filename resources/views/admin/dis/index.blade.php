@@ -41,6 +41,7 @@
                     <tr>
                         <th class="tc">ID</th>
                         <th>评论人</th>
+                        <th>评论的文章</th>
                         <th>评论内容</th>
                         <th>评论时间</th>
                         <th>回复内容</th>
@@ -52,6 +53,7 @@
                             
                             <td>{{$v->dis_id}}</td>
                             <td>{{$v->dis_name}}</td>
+                            <td>{{$v->cate_name}}</td>
                             <td>{{$v->dis_content}}</td>
                             <td>{{date('Y-m-d H:i:s',$v->dis_time)}}</td>
                             <td>{!!date($v->dis_reply)!!}</td>
