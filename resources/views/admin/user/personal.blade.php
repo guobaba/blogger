@@ -19,6 +19,25 @@
 
 	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link href="assets/css/demo.css" rel="stylesheet" />
+    <style type="text/css">
+
+        body{ background:#EEEEEE;margin:0; padding:0; font-family:"微软雅黑", Arial, Helvetica, sans-serif; }
+
+        a{ color:#006600; text-decoration:none;}
+
+        a:hover{color:#990000;}
+
+        .top{ margin:5px auto; color:#990000; text-align:center;}
+
+        .info select{ border:1px #993300 solid; background:#FFFFFF;}
+
+        .info{ margin:5px; text-align:center;}
+
+        .info #show{ color:#3399FF; }
+
+        .bottom{ text-align:right; font-size:12px; color:#CCCCCC; width:1000px;}
+
+    </style>
 
 </head>
 
@@ -49,16 +68,16 @@
 
                     	<div class="wizard-header">
                         	<h3>
-                        	   <b>LIST</b> YOUR PLACE <br>
-                        	   <small>This information will let us know more about your place.</small>
+                        	   <b>我的</b> 个人信息 <br>
+                        	   <small>信不信在你,写不写在我.</small>
                         	</h3>
                     	</div>
 						<div class="wizard-navigation">
 							<ul>
-	                            <li><a href="#location" data-toggle="tab">Location</a></li>
-	                            <li><a href="#type" data-toggle="tab">Type</a></li>
-	                            <li><a href="#facilities" data-toggle="tab">Facilities</a></li>
-	                            <li><a href="#description" data-toggle="tab">Description</a></li>
+	                            <li><a href="#location" data-toggle="tab">地址</a></li>
+	                            <li><a href="#type" data-toggle="tab">类型</a></li>
+	                            <li><a href="#facilities" data-toggle="tab">好友</a></li>
+	                            <li><a href="#description" data-toggle="tab">个性</a></li>
 	                        </ul>
 						</div>
 
@@ -66,54 +85,49 @@
                             <div class="tab-pane" id="location">
                               <div class="row">
                                   <div class="col-sm-12">
-                                    <h4 class="info-text"> Let's start with the basic details</h4>
+                                    <h4 class="info-text"> 基本信息</h4>
                                   </div>
-                                  <div class="col-sm-5 col-sm-offset-1">
-                                      <div class="form-group">
-                                        <label>City</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Where is your place located?">
+                                  <div class="info">
+
+                                      <div>
+
+                                          <select id="s_province" name="s_province"></select>  
+
+                                          <select id="s_city" name="s_city" ></select>  
+
+                                          <select id="s_county" name="s_county"></select>
+
+                                          <script class="resources library" src="{{asset('/admin/area.js')}}" type="text/javascript"></script>
+
+
+
+                                          <script type="text/javascript">_init_area();</script>
+
                                       </div>
+
+                                      <div id="show"></div>
+
                                   </div>
-                                  <div class="col-sm-5">
-                                       <div class="form-group">
-                                            <label>Country</label><br>
-                                             <select name="country" class="form-control">
-                                                <option disabled="" selected="">- country -</option>
-                                                <option value="Afghanistan"> Afghanistan </option>
-                                                <option value="Albania"> Albania </option>
-                                                <option value="Algeria"> Algeria </option>
-                                                <option value="American Samoa"> American Samoa </option>
-                                                <option value="Andorra"> Andorra </option>
-                                                <option value="Angola"> Angola </option>
-                                                <option value="Anguilla"> Anguilla </option>
-                                                <option value="Antarctica"> Antarctica </option>
-                                                <option value="...">...</option>
-                                            </select>
-                                          </div>
-                                  </div>
-                                  <div class="col-sm-5 col-sm-offset-1">
-                                      <div class="form-group">
-                                          <label>Accommodates</label>
-                                          <select class="form-control">
-                                            <option disabled="" selected="">- persons -</option>
-                                            <option>1 Person</option>
-                                            <option>2 Persons </option>
-                                            <option>3 Persons</option>
-                                            <option>4 Persons</option>
-                                            <option>5 Persons</option>
-                                            <option>6+ Persons</option>
-                                          </select>
-                                      </div>
-                                  </div>
-                                  <div class="col-sm-5">
-                                      <div class="form-group">
-                                          <label>Rent price</label>
-                                          <div class="input-group">
-                                              <input type="text" class="form-control" placeholder="Rent price per day">
-                                              <span class="input-group-addon">$</span>
-                                          </div>
-                                      </div>
-                                  </div>
+
+                                  <script type="text/javascript">
+
+                                      var Gid  = document.getElementById ;
+
+                                      var showArea = function(){
+
+                                          Gid('show').innerHTML = "<h3>省" + Gid('s_province').value + " - 市" +
+
+                                              Gid('s_city').value + " - 县/区" +
+
+                                              Gid('s_county').value + "</h3>"
+
+                                      }
+
+                                      Gid('s_county').setAttribute('onchange','showArea()');
+
+                                  </script>
+
+
                               </div>
                             </div>
                             <div class="tab-pane" id="type">

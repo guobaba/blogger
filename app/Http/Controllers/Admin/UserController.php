@@ -205,7 +205,7 @@ class UserController extends Controller
       // $user= User::where('user_id',21)->first();
       // $personal= $user->personal()->first();//$user['user_id']
 //       dd($personal);
-        return view('admin.user.personal');
+        return view('admin.personal');
 
 
     }
