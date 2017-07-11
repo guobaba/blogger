@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Model\Role;
 use Illuminate\Http\Request;
 use App\Http\Model\User;
 
@@ -13,6 +14,27 @@ use Validator;
 
 class UserController extends Controller
 {
+    public function auth($id)
+    {
+        // 获取所有的角色
+        $roles = Role::get();
+//        dd($role);
+        // 获取当前用户
+        $user = User::find($id);
+        return view('admin.auth.add',compact('roles','user'));
+    }
+
+    public function add(Request $request)
+    {
+//        dd($request->all());
+        $input = $request->except('_token');
+//        dd($input);
+        foreach ($input['role_id'] as $k=>$v){
+//            $input['user_id']  $v
+            \DB::insert('insert into blog_role_user (user_id, role_id) values (?, ?)', [$input['user_id'], $v]);
+        }
+        return redirect('admin/user');
+    }
     /**
      * Display a listing of the resource.
      *

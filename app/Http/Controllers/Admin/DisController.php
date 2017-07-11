@@ -54,6 +54,7 @@ class DisController extends Controller
    }
 
    public function reply(Request $request,$id){
+       $dis = Dis::where('dis_id',$id)->first();
 
         $input = $request -> except('_token','dis_content');
         $input['re_time'] = time();

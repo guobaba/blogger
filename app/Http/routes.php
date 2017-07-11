@@ -11,6 +11,7 @@
 |
 */
 
+Route::get('/test','Admin\IndexController@test');
 
 Route::get('/', function () {
     return view('welcome');
@@ -67,4 +68,19 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'admin.login'
     // 友情链接
     Route::resource('link','LinkController');
     Route::any('link/changeorder','LinkController@changeOrder');
+
+    // 角色模块
+    Route::resource('role','RoleController');
+
+    // 权限模块路由 对权限进行增删改查
+    Route::resource('permission','PermissionController');
+
+    // 用户授权路由
+    Route::get('auth/{id}','UserController@auth');
+    // 给用户添加角色
+    Route::post('auth/add','UserController@add');
+
+    // 给角色添加权限
+    Route::get('roleauth','RoleController@addPermission');
+    Route::post('doroleauth','RoleController@doAddPermission');
 });

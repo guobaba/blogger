@@ -75,6 +75,27 @@
                 </ul>
             </li>
             <li>
+                <h3><i class="fa fa-fw fa-cog"></i>角色管理</h3>
+                <ul class="sub_menu">
+                    <li><a href="{{url('admin/role/create')}}" target="main"><i class="fa fa-fw fa-cubes"></i>添加角色</a></li>
+                    <li><a href="{{url('admin/role')}}" target="main"><i class="fa fa-fw fa-database"></i>角色列表</a></li>
+                </ul>
+            </li>
+            <li>
+                <h3><i class="fa fa-fw fa-cog"></i>权限管理</h3>
+                <ul class="sub_menu">
+                    <li><a href="{{url('admin/permission/create')}}" target="main"><i class="fa fa-fw fa-cubes"></i>添加权限</a></li>
+                    <li><a href="{{url('admin/permission')}}" target="main"><i class="fa fa-fw fa-database"></i>权限列表</a></li>
+                </ul>
+            </li>
+            <li>
+                <h3><i class="fa fa-fw fa-cog"></i>角色授权</h3>
+                <ul class="sub_menu">
+                    <li><a href="{{url('admin/roleauth')}}" target="main"><i class="fa fa-fw fa-cubes"></i>添加权限</a></li>
+                    <li><a href="{{url('admin/permission')}}" target="main"><i class="fa fa-fw fa-database"></i>权限列表</a></li>
+                </ul>
+            </li>
+            <li>
             	<h3><i class="fa fa-fw fa-thumb-tack"></i>工具导航</h3>
                 <ul class="sub_menu">
                     <li><a href="http://www.yeahzan.com/fa/facss.html" target="main"><i class="fa fa-fw fa-font"></i>图标调用</a></li>
