@@ -69,6 +69,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'admin.login'
     Route::resource('link','LinkController');
     Route::any('link/changeorder','LinkController@changeOrder');
 
+
     // 角色模块
     Route::resource('role','RoleController');
 
@@ -83,4 +84,9 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'admin.login'
     // 给角色添加权限
     Route::get('roleauth','RoleController@addPermission');
     Route::post('doroleauth','RoleController@doAddPermission');
+
+    // 网站导航
+    Route::resource('nav','NavController');
+    Route::any('nav/changeorder','NavController@changeOrder');
+
 });

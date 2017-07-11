@@ -3,12 +3,12 @@
     <!--面包屑导航 开始-->
     <div class="crumb_warp">
         <!--<i class="fa fa-bell"></i> 欢迎使用登陆网站后台，建站的首选工具。-->
-        <i class="fa fa-home"></i> <a href="#">首页</a> &raquo; <a href="#">友情链接管理</a> &raquo; 添加友情链接
+        <i class="fa fa-home"></i> <a href="#">首页</a> &raquo; <a href="#">导航管理</a> &raquo; 添加导航
     </div>
 
 
     <div class="result_wrap">
-        <form action="{{url('admin/link/'.$data->link_id)}}" method="post">
+        <form action="{{url('admin/nav/'.$data->nav_id)}}" method="post">
             <table class="add_tab">
                 <tbody>
                 <input type="hidden" name="_method" value="put">
@@ -16,25 +16,25 @@
                 <tr>
                     <th>名称：</th>
                     <td>
-                        <input type="text" name="link_name" value="{{$data->link_name}}">
+                        <input type="text" name="nav_name" value="{{$data->nav_name}}">
+                    </td>
+                </tr>
+                <tr>
+                    <th>描述：</th>
+                    <td>
+                        <input type="text" name="nav_name" value="{{$data->nav_alias}}">
                     </td>
                 </tr>
                 <tr>
                     <th>Url：</th>
                     <td>
-                        <input type="text" name="link_url" class="lg" value="{{$data->link_url}}">
-                    </td>
-                </tr>
-                <tr>
-                    <th>链接标题：</th>
-                    <td>
-                        <input type="text" name="link_title" class="lg" value="{{$data->link_title}}">
+                        <input type="text" name="nav_url" class="lg" value="{{$data->nav_url}}">
                     </td>
                 </tr>
                 <tr>
                     <th>排序：</th>
                     <td>
-                        <input type="text" name="link_order" class="sm" value="{{$data->link_order}}">
+                        <input type="text" name="nav_order" class="sm" value="{{$data->nav_order}}">
                     </td>
                 </tr>
                 <tr>
