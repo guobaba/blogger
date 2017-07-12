@@ -61,7 +61,6 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>['admin.login
     Route::any('article/changeorder','ArticleController@changeOrder');
     Route::any('upload','ArticleController@upload');
 
-
     //留言管理
     Route::get('dis/index','DisController@index');
     Route::any('dis/delete/{id}','DisController@delete');

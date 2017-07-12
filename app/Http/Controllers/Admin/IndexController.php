@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+
 use App\Http\Model\Role;
 use App\Http\Model\User;
 use Illuminate\Support\Facades\Crypt;
@@ -14,7 +15,6 @@ use Illuminate\Support\Facades\Input;
 
 class IndexController extends Controller
 {
-
     public function test()
     {
         $user = User::find(12)->roles()->get();
