@@ -13,13 +13,13 @@
             <table class="search_tab">
                 <tr>
                     <th width="70">关键字:</th>
-                    <td><input type="text" name="keyword1" placeholder="关键字1"
-                               value="@if(empty($key)) @else{{$key}}  @endif"
+                    <td><input type="text" name="keyword1" placeholder="输入标题查询"
+                               value="{{$key1}}"
                         ></td>
-                    <td><input type="text" name="keyword2" placeholder="关键字2"
-                        value="@if(empty($key)) @else{{$key}}  @endif"
+                    <td><input type="text" name="keyword2" placeholder="输入作者查询"
+                        value="{{$key2}}"
                         ></td>
-                    <td><input type="submit" name="sub" value="查询"></td>
+                    <td><input type="submit" value="查询"></td>
                 </tr>
             </table>
         </form>
@@ -48,6 +48,7 @@
                         <th class="tc">ID</th>
                         <th>标题</th>
                         <th>点击量</th>
+                        <th>缩略图</th>
                         <th>作者</th>
                         <th>发布时间</th>
                         <th>操作</th>
@@ -60,6 +61,7 @@
                         </td>
                         <td>{{$v->art_title}}</td>
                         <td>{{$v->art_view}}</td>
+                        <td><img src="{{$v->art_thumb}}" id="img"alt=""></td>
                         <td>{{$v->art_editor}}</td>
                         <td>{{date('Y-m-d H:i:s',$v->art_time)}}</td>
                         <td>
@@ -67,11 +69,17 @@
                             <a href="javascript:;" onclick="Delarticle({{$v->art_id}})">删除</a>
                         </td>
                     </tr>
+                    <style>
+                        #img{
+                            width:80px;
+                            height:60px;
+                        }
+                    </style>
                     
                 @endforeach
                 </table>
                 <div class="page_list">
-                 {!! $data->render() !!}
+                    {!! $data->appends($key)->render() !!}
                 </div>
                 <style>
                     .result_content ul li span {

@@ -11,11 +11,14 @@
 |
 */
 
+
 Route::get('/test','Admin\IndexController@test');
+
 
 Route::get('/', function () {
     return view('welcome');
 });
+
 //如果权限不够，重定向路由
 Route::get('/back',function(){
     return view('errors.403');
@@ -29,6 +32,7 @@ Route::get('/admin/code','Admin\LoginController@code');
 
 // 处理登录
 Route::post('/admin/dologin','Admin\LoginController@dologin');
+
 
 Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>['admin.login','has.role']],function(){
     // 退出登录
@@ -57,6 +61,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>['admin.login
     Route::any('article/changeorder','ArticleController@changeOrder');
     Route::any('upload','ArticleController@upload');
 
+
     //留言管理
     Route::get('dis/index','DisController@index');
     Route::any('dis/delete/{id}','DisController@delete');
@@ -73,7 +78,6 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>['admin.login
     // 友情链接
     Route::resource('link','LinkController');
     Route::any('link/changeorder','LinkController@changeOrder');
-
 
     // 角色模块
     Route::resource('role','RoleController');
@@ -94,4 +98,8 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>['admin.login
     Route::resource('nav','NavController');
     Route::any('nav/changeorder','NavController@changeOrder');
 
+    //广告模块
+    Route::resource('adv','AdvController');
+    Route::any('adv/changeorder','AdvController@changeOrder');
+    Route::any('upload','AdvController@upload');
 });

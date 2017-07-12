@@ -26,41 +26,28 @@
     <!--结果集标题与导航组件 结束-->
     
     <div class="result_wrap">
-        <form action="{{url('admin/article/'.$data->art_id)}}" method="post">
+        <form action="{{url('admin/adv/'.$data->adv_id)}}" method="post">
             <table class="add_tab">
                 <tbody>
                 <input type="hidden" name="_method" value="put">
                     {{csrf_field()}}
+                
                 <tr>
-                    <th>分类：</th>
+                    <th>广告名：</th>
                     <td>
-                        <select name="cate_id">
-                            <option value="0">==顶级文章==</option>
-                            @foreach($cate as $k=>$v)
-                                <option value="{{$v->cate_id}}"
-                             @if($v->cate_id == $data->cate_id)   selected     @endif
-                                >{{$v->_name}}</option>
-                            @endforeach
-                        </select>
-                    </td>
-                </tr>
-
-                <tr>
-                    <th>文章标题：</th>
-                    <td>
-                        <input type="text" name="art_title" class="lg" value="{{$data->art_title}}">
+                        <input type="text" name="adv_name" class="lg" value="{{$data->adv_name}}">
                     </td>
                 </tr>
                 <tr>
-                    <th>编辑：</th>
+                    <th>标题：</th>
                     <td>
-                        <input type="text" name="art_editor" class="sm" value="{{$data->art_editor}}">
+                        <input type="text" name="adv_title" class="sm" value="{{$data->adv_title}}">
                     </td>
                 </tr>
                 <tr>
-                    <th>缩略图：</th>
+                    <th>广告视图：</th>
                     <td>
-                        <input type="text" name="art_thumb" id="art_thumb" style="width:300px;" value="{{$data->art_thumb}}">
+                        <input type="text" name="adv_img" id="adv_img" style="width:300px;" value="{{$data->adv_img}}">
                         <input type="file" name="file_upload" id="file_upload" value="">
                         <script type="text/javascript">
                             $(function () {
@@ -100,7 +87,7 @@
 //                                    alert("上传成功");
                                         $('#pic').attr('src',data);
                                         $('#pic').show();
-                                        $('#art_thumb').val(data);
+                                        $('#adv_img').val(data);
 
                                     },
                                     error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -116,40 +103,17 @@
                 <tr>
                     <th></th>
                     <td>
-                        <img src="/{{$data->art_thumb}}" alt="" name="pic" id="pic" style="width:100px;" >
+                        <img src="{{$data->adv_img}}" alt="" name="pic" id="pic" style="width:100px;" >
                     </td>
                 </tr>
+                
                 <tr>
-                    <th>关键字：</th>
+                    <th>链接地址：</th>
                     <td>
-                        <input type="text" name="art_tag" class="lg" value="{{$data->art_tag}}">
+                        <textarea name="adv_link">{{$data->adv_link}}</textarea>
                     </td>
                 </tr>
-                <tr>
-                    <th>描述：</th>
-                    <td>
-                        <textarea name="art_description">{{$data->art_description}}</textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <th>文章内容：</th>
-                    <td>
-                        <script type="text/javascript" charset="utf-8" src="{{asset('ueditor/ueditor.config.js')}}"></script>
-                        <script type="text/javascript" charset="utf-8" src="{{asset('ueditor/ueditor.all.min.js')}}"> </script>
-                        <script type="text/javascript" charset="utf-8" src="{{asset('ueditor/lang/zh-cn/zh-cn.js')}}"></script>
-                        <script id="editor" type="text/plain" name="art_content" style="width:850px;height:500px;">{!! $data->art_content !!}</script>
-                        <script type="text/javascript">
-                            var ue = UE.getEditor('editor');
-                        </script>
-                        <style>
-                            .edui-default{line-height: 28px;}
-                            div.edui-combox-body,div.edui-button-body,div.edui-splitbutton-body
-                            {overflow: hidden; height:20px;}
-                            div.edui-box{overflow: hidden; height:22px;}
-                        </style>
-
-                    </td>
-                </tr>
+               
                     <tr>
                         <th></th>
                         <td>

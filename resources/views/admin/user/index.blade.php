@@ -87,7 +87,6 @@
                         layer.msg('data.msg',{icon:6});
                         location.href = location.href;
                     }else{
-                        //console.log(data);
                         layer.msg(data.msg,{icon:5});
                         location.href = location.href;
                     }
@@ -96,11 +95,5 @@
 
             });
         }
-        [
-            'sdfd' => [
-                'w',
-                'e'
-            ],
-        ]
     </script>
 @endsection

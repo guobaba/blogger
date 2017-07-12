@@ -6,7 +6,6 @@
         <i class="fa fa-home"></i> <a href="#">首页</a> &raquo; <a href="#">友情链接管理</a> &raquo; 添加友情链接
     </div>
 
-
     <div class="result_wrap">
         <form action="{{url('admin/link/'.$data->link_id)}}" method="post">
             <table class="add_tab">
