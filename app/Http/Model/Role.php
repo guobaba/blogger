@@ -23,6 +23,8 @@ class Role extends Model
      */
     public function permissions()
     {
+
         return $this->belongsToMany('App\Http\Model\Permission','permission_role','role_id','permission_id');
+
     }
 }

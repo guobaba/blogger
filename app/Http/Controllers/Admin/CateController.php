@@ -53,7 +53,9 @@ class CateController extends Controller
             $cate = Cate::where('cate_name','like',"%".$key."%")->paginate(2);
              return view('admin.cate.index',['data'=>$cate,'key'=>$key]);
         }else{
+
             $cate = Cate::orderBy('cate_order','asc')->paginate(2);
+
             return view('admin.cate.index',['data'=>$cate]);  
         }
         //$cate = (new  Cate)->tree();

@@ -12,6 +12,7 @@
 */
 
 
+
 Route::get('/test','Admin\IndexController@test');
 
 
@@ -34,7 +35,9 @@ Route::get('/admin/code','Admin\LoginController@code');
 Route::post('/admin/dologin','Admin\LoginController@dologin');
 
 
+
 Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>['admin.login','has.role']],function(){
+
     // 退出登录
     Route::get('quit','IndexController@quit');
     // 修改密码
@@ -78,6 +81,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>['admin.login
     Route::resource('link','LinkController');
     Route::any('link/changeorder','LinkController@changeOrder');
 
+
     // 角色模块
     Route::resource('role','RoleController');
 
@@ -97,8 +101,10 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>['admin.login
     Route::resource('nav','NavController');
     Route::any('nav/changeorder','NavController@changeOrder');
 
+
     //广告模块
     Route::resource('adv','AdvController');
     Route::any('adv/changeorder','AdvController@changeOrder');
     Route::any('upload','AdvController@upload');
+
 });

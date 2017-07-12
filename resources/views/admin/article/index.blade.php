@@ -13,6 +13,7 @@
             <table class="search_tab">
                 <tr>
                     <th width="70">关键字:</th>
+
                     <td><input type="text" name="keyword1" placeholder="输入标题查询"
                                value="{{$key1}}"
                         ></td>
@@ -20,6 +21,7 @@
                         value="{{$key2}}"
                         ></td>
                     <td><input type="submit" value="查询"></td>
+
                 </tr>
             </table>
         </form>
@@ -48,7 +50,10 @@
                         <th class="tc">ID</th>
                         <th>标题</th>
                         <th>点击量</th>
+<<<<<<< HEAD
                         <th>缩略图</th>
+=======
+>>>>>>> d86357a50e46c195c79bb5a1239d83c0b94428ea
                         <th>作者</th>
                         <th>发布时间</th>
                         <th>操作</th>
@@ -61,7 +66,10 @@
                         </td>
                         <td>{{$v->art_title}}</td>
                         <td>{{$v->art_view}}</td>
+<<<<<<< HEAD
                         <td><img src="{{$v->art_thumb}}" id="img"alt=""></td>
+=======
+>>>>>>> d86357a50e46c195c79bb5a1239d83c0b94428ea
                         <td>{{$v->art_editor}}</td>
                         <td>{{date('Y-m-d H:i:s',$v->art_time)}}</td>
                         <td>
@@ -69,17 +77,24 @@
                             <a href="javascript:;" onclick="Delarticle({{$v->art_id}})">删除</a>
                         </td>
                     </tr>
+<<<<<<< HEAD
                     <style>
                         #img{
                             width:80px;
                             height:60px;
                         }
                     </style>
+=======
+>>>>>>> d86357a50e46c195c79bb5a1239d83c0b94428ea
                     
                 @endforeach
                 </table>
                 <div class="page_list">
+<<<<<<< HEAD
                     {!! $data->appends($key)->render() !!}
+=======
+                 {!! $data->render() !!}
+>>>>>>> d86357a50e46c195c79bb5a1239d83c0b94428ea
                 </div>
                 <style>
                     .result_content ul li span {
