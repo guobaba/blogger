@@ -58,7 +58,7 @@ class DisController extends Controller
         $input = $request -> except('_token','dis_content');
         $input['re_time'] = time();
         $input['dis_status'] = 0;
-       
+        $dis = Dis::where('dis_id',$id)->first();
         $res = $dis->update($input);
         if($res){
             return redirect('admin/dis/index');
