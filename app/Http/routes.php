@@ -20,9 +20,9 @@ Route::get('a/{id}','Home\IndexController@article');
 Route::get('/test','Admin\IndexController@test');
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 //如果权限不够，重定向路由
 Route::get('/back',function(){
