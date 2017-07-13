@@ -10,7 +10,11 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
+Route::get('/','Home\IndexController@index');
+//列表页路由
+Route::get('cate/{id}','Home\IndexController@cate');
+//详情页路由
+Route::get('a/{id}','Home\IndexController@article');
 
 
 Route::get('/test','Admin\IndexController@test');
