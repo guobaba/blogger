@@ -31,25 +31,28 @@
         <div class="result_content">
             <ul>
                 <li>
-                    <label>操作系统</label><span>{{PHP_OS}}</span>
+                    <label>操作系统</label><span>WINNT</span>
                 </li>
                 <li>
-                    <label>运行环境</label><span>{{$_SERVER['SERVER_SOFTWARE']}}</span>
+                    <label>运行环境</label><span>Apache/2.2.21 (Win64) PHP/5.3.10</span>
                 </li>
                 <li>
-                    <label>上传附件限制</label><span><?php echo get_cfg_var("upload_max_filesize")?get_cfg_var("upload_max_filesize"):"不允许上传文件"; ?></span>
+                    <label>PHP运行方式</label><span>apache2handler</span>
                 </li>
                 <li>
-                    <label>北京时间</label><span>{{date('Y-m-d H:i:s',time())}}</span>
+                    <label>静静设计-版本</label><span>v-0.1</span>
                 </li>
                 <li>
-                    <label>服务器域名/IP</label><span>{{$_SERVER['SERVER_NAME']}} [ {{$_SERVER['SERVER_ADDR']}} ]</span>
+                    <label>上传附件限制</label><span>2M</span>
                 </li>
                 <li>
-                    <label>Host</label><span>{{$_SERVER['DB_HOST']}}</span>
+                    <label>北京时间</label><span>2014年3月18日 21:08:24</span>
                 </li>
                 <li>
-                    <label>数据库名称</label><span>{{$_SERVER['DB_DATABASE']}}</span>
+                    <label>服务器域名/IP</label><span>localhost [ 127.0.0.1 ]</span>
+                </li>
+                <li>
+                    <label>Host</label><span>127.0.0.1</span>
                 </li>
             </ul>
         </div>

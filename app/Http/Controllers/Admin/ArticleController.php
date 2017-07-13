@@ -13,10 +13,8 @@ use App\Services\OSS;
 
 class ArticleController extends Controller
 {
-
     public function upload(Request $request)
     {
-
 //        将上传文件移动到制定目录，并以新文件名命名
         $file = Input::file('file_upload');
         if($file->isValid()) {
@@ -25,7 +23,6 @@ class ArticleController extends Controller
 
 //            将图片上传到本地服务器
             $path = $file->move(public_path() . '/uploads', $newName);
-
 
 //        返回文件的上传路径
             $filepath = 'uploads/' . $newName;
@@ -39,7 +36,6 @@ class ArticleController extends Controller
      */
     public function index(Request $request)
     {
-
         // if($request ->has('keywords')){
         //     $key = trim($request->input('keywords'));
             
@@ -50,27 +46,16 @@ class ArticleController extends Controller
         //     $data = Article::orderBy('art_time','asc')->paginate(2);
         //     return view('admin.article.index',compact('data'));
         // }
+    
+        $key1 = trim($request->input('keyword1',''));
+        $key2 = trim($request->input('keyword2',''));
+        $key = $request -> all();
 
-//        dd($request->all());
-//        $wh = [];
-//        if($request->has('keyword1')){
-//            $wh['keyword1'] = $request['keyword1'];
-//        }
-//        if($request->has('keyword2')){
-//            $wh['keyword2'] = $request['keyword2'];
-//        }
-//        Article::where($wh)->paginate(5);
-//
-//        $wh=[
-//          ['keyword1','like','%'.$request['keyword1'].'%'],
-//          ['keyword2','like','%'.$request['keyword2'].'%']
-//        ];
-//        Article::where($wh)->paginate(5);
-
-        $data = Article::orderBy('art_time','desc')->paginate(5);
-        return view('admin.article.index',compact('data'));
-    }
-
+        $data = Article::where('art_title','like',"%".$key1."%")
+                ->where('art_editor','like',"%".$key2."%")
+                ->paginate(2);
+        return view('admin.article.index',compact('data', 'key','key1','key2'));
+    } 
 
     /**
      * Show the form for creating a new resource.

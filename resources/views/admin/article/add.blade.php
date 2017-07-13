@@ -59,7 +59,6 @@
                         <td>
                             <input type="text" name="art_thumb" id="art_thumb" style="width:300px;">
                             <input type="file" name="file_upload" id="file_upload" value="">
-
                         </td>
                     </tr>
                     <tr>
@@ -116,7 +115,6 @@
     }
 
 </script>
-
                     <tr>
                         <th>关键字：</th>
                         <td>

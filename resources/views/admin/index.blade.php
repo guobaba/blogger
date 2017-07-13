@@ -80,7 +80,6 @@
                 <ul class="sub_menu">
                     <li><a href="{{url('admin/adv/create')}}" target="main"><i class="fa fa-fw fa-cubes"></i>添加广告</a></li>
                     <li><a href="{{url('admin/adv')}}" target="main"><i class="fa fa-fw fa-database"></i>广告列表</a></li>
-
                 </ul>
             </li>
             <li>

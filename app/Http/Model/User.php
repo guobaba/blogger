@@ -10,6 +10,7 @@ class User extends Model
     protected $primaryKey='user_id';
     protected $guarded = [];
 
+
     /**
      * 属于该用户的身份。
      */

@@ -34,17 +34,13 @@
                 <tr>
                     <th>路由：</th>
                     <td>
-
                         <input type="text" name="name" class="lg" value="{{$data->name}}">
-
                     </td>
                 </tr>
                 <tr>
                     <th>名称: </th>
                     <td>
-
                         <input type="text" name="description" class="lg" value="{{$data->description}}">
-
                     </td>
                 </tr>
                 <tr>

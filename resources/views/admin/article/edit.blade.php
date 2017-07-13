@@ -85,7 +85,6 @@
                                     return;
                                 }
 
-
                                 var formData = new FormData(document.forms[0]);
 
                                 $.ajax({
@@ -99,9 +98,7 @@
                                     success: function(data) {
 //                                    console.log(data);
 //                                    alert("上传成功");
-
                                         $('#pic').attr('src',data);
-
                                         $('#pic').show();
                                         $('#art_thumb').val(data);
 
