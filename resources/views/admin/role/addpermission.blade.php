@@ -49,6 +49,13 @@
                     <tr>
                         <th>权限集合：</th>
                         <td>
+                            {{--<select id="permission_id" name="permission_id[]" class="form-control text-input-280">--}}
+                                {{--@foreach($permissions as $k=>$v)--}}
+                                    {{--<option value="{{$v->id}}">{{$v->description}}</option>--}}
+                                {{--@endforeach--}}
+                            {{--</select>--}}
+
+
                             @foreach($permissions as $k=>$permission)
                                 <label for=""><input type="checkbox" name="permission_id[]" value="{{$permission->id}}">{{$permission->description}}</label>
                             @endforeach

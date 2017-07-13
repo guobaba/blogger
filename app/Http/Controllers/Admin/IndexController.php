@@ -17,9 +17,10 @@ class IndexController extends Controller
 {
     public function test()
     {
-        $user = User::find(12)->roles()->get();
-        $role = Role::find(1)->users()->get();
-        dd($role);
+        dd($_SERVER);
+//        $user = User::find(12)->roles()->get();
+//        $role = Role::find(1)->users()->get();
+//        dd($role);
     }
     
     
