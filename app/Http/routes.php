@@ -11,14 +11,15 @@
 |
 */
 
-Route::get('/','Home\IndexController@index');
-//列表页路由
-Route::get('cate/{id}','Home\IndexController@cate');
-//详情页路由
-Route::get('a/{id}','Home\IndexController@article');
-Route::get('/test','Admin\IndexController@test');
-
-
+// 前台路由
+Route::group(['namespace'=>'Home'],function(){
+    // 前台首页
+	Route::get('/','IndexController@index');
+	// 列表页路由
+	Route::get('cate/{id}','IndexController@cate');
+	// 详情页路由
+	Route::get('a/{id}','IndexController@article');
+});
 
 //如果权限不够，重定向路由
 Route::get('/back',function(){
@@ -30,9 +31,11 @@ Route::get('/admin/crypt','Admin\LoginController@crypt');
 Route::get('/admin/login','Admin\LoginController@login');
 // 验证码
 Route::get('/admin/code','Admin\LoginController@code');
+Route::get('/test','Admin\IndexController@test');
 
 // 处理登录
 Route::post('/admin/dologin','Admin\LoginController@dologin');
+
 
 
 Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>['admin.login']],function(){
