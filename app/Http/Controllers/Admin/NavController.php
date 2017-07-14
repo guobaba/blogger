@@ -16,10 +16,18 @@ class NavController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = Nav::orderBy('nav_order','asc')->get();
-        return view('admin.nav.index',compact('data'));
+        if($request ->has('keywords')){
+            $key = trim($request->input('keywords'));
+
+            // dd($key);
+            $nav = Nav::where('nav_name','like',"%".$key."%")->paginate(2);
+            return view('admin.nav.index',['data'=>$nav,'key'=>$key]);
+        }else{
+            $data = Nav::orderBy('nav_order','asc')->paginate(2);
+            return view('admin.nav.index',compact('data'));
+        }
     }
 
     public function changeOrder(Request $request)
@@ -54,8 +62,9 @@ class NavController extends Controller
      */
     public function create()
     {
-        // 返回视图
-        return view('admin.nav.add');
+        // 获取一级分类
+        $nav_one = Nav::where('nav_pid',0)->get();
+        return view('admin.nav.add',compact('nav_one'));
     }
 
     /**

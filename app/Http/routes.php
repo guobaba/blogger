@@ -34,7 +34,7 @@ Route::get('/admin/code','Admin\LoginController@code');
 Route::post('/admin/dologin','Admin\LoginController@dologin');
 
 
-Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>['admin.login','has.role']],function(){
+Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>['admin.login']],function(){
     // 退出登录
     Route::get('quit','IndexController@quit');
     // 修改密码

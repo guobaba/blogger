@@ -17,41 +17,50 @@
         </div>
         <div class="result_content">
             <div class="short_wrap">
-                <a href="{{url('admin/nav/create')}}"><i class="fa fa-plus"></i>新增导航</a>
-                <a href="#"><i class="fa fa-recycle"></i>批量删除</a>
-                <a href="#"><i class="fa fa-refresh"></i>更新排序</a>
+                <a href="#"><i class="fa fa-plus"></i>新增导航</a>
             </div>
         </div>
     </div>
     <!--结果集标题与导航组件 结束-->
 
     <div class="result_wrap">
-        <form action="{{url('admin/nav')}}" method="post" id="art_form">
+        <form action="{{url('admin/nav')}}" method="post">
             <table class="add_tab">
                 <tbody>
                 {{csrf_field()}}
                 <tr>
-                    <th>名称：</th>
+                    <th>父级导航：</th>
                     <td>
-                        <input type="text" name="nav_name" >
+                        <select name="nav_pid">
+                            <option value="0">==顶级导航==</option>
+                            @foreach($nav_one as $k=>$v)
+                                <option value="{{$v->nav_id}}">{{$v->nav_name}}</option>
+                            @endforeach
+                        </select>
                     </td>
                 </tr>
                 <tr>
-                    <th>描述：</th>
+                    <th>导航名称：</th>
                     <td>
-                        <input type="text" name="nav_alias" >
+                        <input type="text" name="nav_name">
+                    </td>
+                </tr>
+                <tr>
+                    <th>导航标题：</th>
+                    <td>
+                        <input type="text" name="nav_alias">
                     </td>
                 </tr>
                 <tr>
                     <th>Url：</th>
                     <td>
-                        <input type="text" name="nav_url" class="lg">
+                        <input type="text" name="nav_url" class="lg" value="http://www.blogger.com/">
                     </td>
                 </tr>
                 <tr>
                     <th>排序：</th>
                     <td>
-                        <input type="text" name="nav_order" class="sm">
+                        <input type="text" name="nav_order">
                     </td>
                 </tr>
                 <tr>
