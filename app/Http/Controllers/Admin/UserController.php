@@ -7,6 +7,7 @@ use App\Http\Model\Role;
 
 use Illuminate\Http\Request;
 use App\Http\Model\User;
+use App\Http\Model\Personal;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -221,16 +222,5 @@ class UserController extends Controller
             ];
         }
         return $data;
-    }
-
-
-    public function personal(Request $request)
-    {
-      // $user= User::where('user_id',21)->first();
-      // $personal= $user->personal()->first();//$user['user_id']
-//       dd($personal);
-        return view('admin.personal');
-
-
     }
 }

@@ -13,7 +13,7 @@
 		</div>
 		<div class="top_right">
 			<ul>
-				<li>{{session('user')->user_name}}</li>
+				<li><a href="{{url('admin/personal')}}">{{session('user')->user_name}}</a></li>
 				<li><a href="{{url('admin/repass')}}" target="main">修改密码</a></li>
 				<li><a href="{{url('admin/quit')}}">退出</a></li>
 			</ul>

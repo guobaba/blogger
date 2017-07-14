@@ -11,13 +11,14 @@
 |
 */
 
-
+Route::get('/','Home\IndexController@index');
+//列表页路由
+Route::get('cate/{id}','Home\IndexController@cate');
+//详情页路由
+Route::get('a/{id}','Home\IndexController@article');
 Route::get('/test','Admin\IndexController@test');
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 //如果权限不够，重定向路由
 Route::get('/back',function(){
@@ -34,7 +35,7 @@ Route::get('/admin/code','Admin\LoginController@code');
 Route::post('/admin/dologin','Admin\LoginController@dologin');
 
 
-Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>['admin.login','has.role']],function(){
+Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>['admin.login']],function(){
     // 退出登录
     Route::get('quit','IndexController@quit');
     // 修改密码
@@ -49,7 +50,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>['admin.login
     // 用户模块
     Route::resource('user','UserController');
     // 查看个人信息
-    Route::get('personal','UserController@personal');
+    Route::resource('personal','PersonalController');
 
 
     // 分类模块
