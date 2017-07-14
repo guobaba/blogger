@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Model\Link;
 use App\Http\Controllers\Controller;
 use App\Http\Model\Nav;
+use App\Http\Model\Dis;
 class IndexController extends CommonController
 {
     /**
@@ -19,6 +20,8 @@ class IndexController extends CommonController
         //获取页面所需要的数据
     //      图文文章  $pic   6
         $pic = Article::orderBy('art_time','desc')->take(4)->get();
+
+       
         //分页文章  $art
         $art = Article::orderBy('art_time','desc')->paginate(4);
 
@@ -68,10 +71,11 @@ class IndexController extends CommonController
       $article1 = Article::orderBy('art_id','desc')->where('art_id','<',$id)->first();
       //dd($articles);
        $article2 = Article::orderBy('art_id','asc')->where('art_id','>',$id)->first();
+       $dis = Dis::where('dis_id',$id)->get();
 
 //        相关文章
         $rel =  Article::where('cate_id',$art->cate_id)->take(4)->get();
-        return view('home.new',compact('art','article1','article2','rel'));
+        return view('home.new',compact('art','article1','article2','rel','dis'));
     }
 
  
