@@ -20,6 +20,10 @@
   <meta name="msapplication-TileColor" content="#0e90d2">
   <link rel="stylesheet" href="/home/assets/css/amazeui.min.css">
   <link rel="stylesheet" href="/home/assets/css/app.css">
+
+    {{--打赏用的--}}
+    <link rel="stylesheet" href="/home/assets/css/mycss.css" />
+    <script src="/home/assets/js/jquery-1.8.3.min.js" type="text/JavaScript"></script>
 </head>
 
 <body id="blog">
@@ -27,7 +31,7 @@
 <header class="am-g am-g-fixed blog-fixed blog-text-center blog-header">
     <div class="am-u-sm-8 am-u-sm-centered">
         <img width="200" src="/uploads/201707132122123652.jpg" alt="Amaze UI Logo"/>
-        <h2 class="am-hide-sm-only">我自狂歌空度日，飞扬跋扈为谁雄！</h2>
+        <h2 class="am-hide-sm-only">我自狂歌空度日，飞扬跋扈为谁勃！</h2>
     </div>
 </header>
 <hr>

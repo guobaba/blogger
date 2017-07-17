@@ -25,7 +25,54 @@
         {!!$art->art_content!!}
         </div>
       </article>
-   
+      {{--打赏功能--}}
+
+      @if($art->cate_id==3)
+
+        <div class="content" style="text-align:center">
+              <p style="font-size:36px;"><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang" title="打赏，支持一下" >打赏</a></p>
+              <div class="hide_box"></div>
+              <div class="shang_box">
+                <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()" title="关闭"><img src="/home/images/close.jpg" alt="取消" /></a>
+                <div class="shang_tit">
+                    <p>感谢您的支持，我会继续努力的!</p>
+                </div>
+                <div class="shang_payimg" style="padding:0px">
+                    <img src="/home/images/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+                </div>
+                <div class="pay_explain">扫码打赏，你说多少就多少</div>
+                <div class="shang_payselect">
+                    <div class="pay_item checked" data-id="alipay">
+                        <span class="radiobox"></span>
+                        <span class="pay_logo"><img src="/home/images/alipay.jpg" alt="支付宝" /></span>
+                    </div>
+                  <div class="pay_item" data-id="weipay">
+                      <span class="radiobox"></span>
+                      <span class="pay_logo"><img src="/home/images/wechat.jpg" alt="微信" /></span>
+                  </div>
+                </div>
+                <div class="shang_info">
+                  <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+                </div>
+              </div>
+        </div>
+        <script type="text/javascript">
+            $(function(){
+                $(".pay_item").click(function(){
+                    $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+                    var dataid=$(this).attr('data-id');
+                    $(".shang_payimg img").attr("src","/home/images/"+dataid+"img.jpg");
+                    $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+                });
+            });
+            function dashangToggle(){
+                $(".hide_box").fadeToggle();
+                $(".shang_box").fadeToggle();
+            }
+        </script>
+        {{--========================================================================================--}}
+      @endif
+
         
         <div class="am-g blog-article-widget blog-article-margin">
           <div class="am-u-lg-4 am-u-md-5 am-u-sm-7 am-u-sm-centered blog-text-center">
