@@ -20,6 +20,7 @@
   <meta name="msapplication-TileColor" content="#0e90d2">
   <link rel="stylesheet" href="/home/assets/css/amazeui.min.css">
   <link rel="stylesheet" href="/home/assets/css/app.css">
+  <script type="text/javascript" src="{{asset('/admin/style/js/jquery.js')}}"></script>
 </head>
 
 <body id="blog">

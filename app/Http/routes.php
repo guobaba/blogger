@@ -17,6 +17,7 @@ Route::get('cate/{id}','Home\IndexController@cate');
 //详情页路由
 Route::get('a/{id}','Home\IndexController@article');
 Route::get('/test','Admin\IndexController@test');
+Route::post('/dis/{id}','Home\IndexController@dis');
 
 
 

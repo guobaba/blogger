@@ -6,9 +6,12 @@ use Illuminate\Http\Request;
 use App\Http\Model\Article;
 use App\Http\Requests;
 use App\Http\Model\Link;
-use App\Http\Controllers\Controller;
 use App\Http\Model\Nav;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 use App\Http\Model\Dis;
+use App\Http\Model\User;
+use App\Services\OSS;
 class IndexController extends CommonController
 {
     /**
@@ -60,7 +63,7 @@ class IndexController extends CommonController
     public function article($id)
 
     {
-
+       
         //文章访问次数加1
         $article = Article::where('art_id',$id)->increment('art_view');
         // dd($article);
@@ -71,11 +74,36 @@ class IndexController extends CommonController
       $article1 = Article::orderBy('art_id','desc')->where('art_id','<',$id)->first();
       //dd($articles);
        $article2 = Article::orderBy('art_id','asc')->where('art_id','>',$id)->first();
-       $dis = Dis::where('dis_id',$id)->get();
+       $dis = Dis::join('user','discuss.user_id','=','user.user_id')->where('art_id',$id)->get();
 
+
+    
 //        相关文章
         $rel =  Article::where('cate_id',$art->cate_id)->take(4)->get();
         return view('home.new',compact('art','article1','article2','rel','dis'));
+    }
+
+    public function dis($id){
+
+        $input = Input::except('_token');
+        $input['dis_time'] =time();
+        $re = Dis::create($input);
+       
+        if($re){
+            $data = [
+                'status'=>0,
+                'msg'=>'评论成功！'
+            ];
+        }else{
+            $data = [
+                'status'=>1,
+                'msg'=>'评论失败！'
+            ];
+        }
+        return $data;
+        
+
+      
     }
 
  

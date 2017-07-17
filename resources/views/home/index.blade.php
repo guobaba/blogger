@@ -10,15 +10,7 @@
     @foreach($adv as $k=>$v)
       <li>
             <img src="{{$v->adv_img}}">
-            <div class="blog-slider-desc am-slider-desc ">
-                <div class="blog-text-center blog-slider-con">
-                    <span><a href="{{$v->adv_link}}" class="blog-color">{{$v->adv_name}}</a></span>               
-                    <h1 class="blog-h-margin"><a href="">{{$v->adv_title}}
-                    </p>
-                    <span class="blog-bor">{{date('Y-m-d',$v->adv_time)}}</span>
-                    <br><br><br><br><br><br><br>                
-                </div>
-            </div>
+            
       </li>
       @endforeach
 
@@ -40,7 +32,7 @@
                 <span><a href="" class="blog-color">添加时间：{{date('Y-m-d',$vv->art_time)}}</a></span><br>
                 <span>关键字：{{$vv->art_tag}}</span><br>
                 <span>作者：{{$vv->art_editor}}</span><br>
-                <h1><a href="">
+                <h1><a href="/a/{{$vv->art_id}}">
                 {{$vv->art_title}}
                 <p><a href="" class="blog-continue"></a></p>
             </div>
