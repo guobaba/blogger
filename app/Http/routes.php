@@ -36,8 +36,6 @@ Route::get('/test','Admin\IndexController@test');
 // 处理登录
 Route::post('/admin/dologin','Admin\LoginController@dologin');
 
-
-
 Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>['admin.login']],function(){
     // 退出登录
     Route::get('quit','IndexController@quit');

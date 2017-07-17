@@ -37,8 +37,6 @@
             <div class="result_content">
                 <div class="short_wrap">
                     <a href="{{url('admin/nav/create')}}"><i class="fa fa-plus"></i>新增导航</a>
-                    <a href="#"><i class="fa fa-recycle"></i>批量删除</a>
-                    <a href="#"><i class="fa fa-refresh"></i>更新排序</a>
                 </div>
             </div>
             <!--快捷导航 结束-->
@@ -76,7 +74,18 @@
 
                     @endforeach
                 </table>
-
+                <?php
+                $key = empty($key)?'':$key;
+                ?>
+                <div class="page_list">
+                    {!! $data->appends(['keywords' => $key])->render() !!}
+                </div>
+                <style>
+                    .result_content ul li span {
+                        font-size: 15px;
+                        padding: 6px 12px;
+                    }
+                </style>
             </div>
         </div>
     </form>

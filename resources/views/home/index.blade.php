@@ -31,7 +31,7 @@
                 <span><a href="" class="blog-color">添加时间：{{date('Y-m-d',$vv->art_time)}}</a></span><br>
                 <span>关键字：{{$vv->art_tag}}</span><br>
                 <span>作者：{{$vv->art_editor}}</span><br>
-                <h1><a href="">
+                <h1><a href="/a/{{$vv->art_id}}">
                 {{$vv->art_title}}
                 <p><a href="" class="blog-continue"></a></p>
             </div>
