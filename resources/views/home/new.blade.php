@@ -54,28 +54,85 @@
         </ul>
         
         <hr>
-
-        <form class="am-form am-g">
+         
+       
             <h3 class="blog-comment">评论</h3>
-          <fieldset>
-            <div class="am-form-group am-u-sm-4 blog-clear-left">
-              <input type="text" class="" placeholder="名字">
-            </div>
-            <div class="am-form-group am-u-sm-4">
-              <input type="email" class="" placeholder="邮箱">
-            </div>
+            <style>
+                #button{
+                  margin-left: 200px;
+                }
+            </style>
+             <div> 
+       
+          @foreach($dis as $k=>$v)
+             <div>
+               <span>{{$v['user_name']}}</span>---回复----
+               <span>{{$v['user_name']}}</span>---：
+               <span >{!!$v['dis_content']!!}</span><button id="art"  data-dis_id='{{$v['dis_id']}}' user_id="{{$v['user_id']}}">回复</button>
+             </div><hr>
+          @endforeach
+  
+          </div>
+           <form  class="am-form am-g" action="{{url('/dis/0')}}" method="post">
+                  
+           
+                          <tr>
+                    <th>评论：</th>
+                    <td>
+                     {{csrf_field()}}
+                        <script type="text/javascript" charset="utf-8" src="{{asset('ueditor/ueditor.config.js')}}"></script>
+                        <script type="text/javascript" charset="utf-8" src="{{asset('ueditor/ueditor.all.min.js')}}"> </script>
+                        <script type="text/javascript" charset="utf-8" src="{{asset('ueditor/lang/zh-cn/zh-cn.js')}}"></script>
+                        <script id="editor" type="text/plain" name="dis_content" style="width:850px;height:200px;" value="">xx</script>
+                        <script type="text/javascript">
+                            var ue = UE.getEditor('editor');
+                        </script>
+                        <style>
+                            .edui-default{line-height: 28px;}
+                            div.edui-combox-body,div.edui-button-body,div.edui-splitbutton-body
+                            {overflow: hidden; height:20px;}
+                            div.edui-box{overflow: hidden; height:22px;}
+                        </style>
 
-            <div class="am-form-group am-u-sm-4 blog-clear-right">
-              <input type="password" class="" placeholder="网站">
-            </div>
-        
-            <div class="am-form-group">
-              <textarea class="" rows="5" placeholder="一字千金"></textarea>
-            </div>
-        
-            <p><button type="submit" class="am-btn am-btn-default">发表评论</button></p>
-          </fieldset>
+                    </td>
+                </tr>
+                          <a id="tjiao" href="javascript:;" art_id="{{$art->art_id}}">提交</a>
+
+                
+  
         </form>
+<script>
+    
+    $(function(){
+        var form = null;
+        var id = 0;
+        var art_id = 0;
+        $('button').click(function(){
+          id = $(this).attr('data-dis_id');
+          
+
+
+        });
+        $('#tjiao').click(function(){
+              form  = ue.getContent();
+              art_id = $(this).attr('art_id');
+              user_id = $('#art').attr('user_id');
+             
+
+              $.post("{{url('/dis/')}}/"+id,{'_token':"{{csrf_token()}}",'dis_content':form,'art_id':art_id,'re_id':id,'user_id':user_id},function(data){
+                 if(data.status == 0){
+                     location.href = location.href;
+                     layer.msg(data.msg, {icon: 6});
+                 }else{
+                     location.href = location.href;
+                     layer.msg(data.msg, {icon: 5});
+                 }
+              })
+      });
+   
+  })
+
+</script>
 
         <hr>
     </div>

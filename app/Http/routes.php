@@ -10,6 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+
 //前台注册
 Route::controller('/home/zhuce','Home\ZhuceController');
 //前台登录
@@ -24,8 +25,8 @@ Route::group(['namespace'=>'Home'],function(){
 	Route::get('cate/{id}','IndexController@cate');
 	// 详情页路由
 	Route::get('a/{id}','IndexController@article');
+    Route::post('/dis/{id}','IndexController@dis');
 });
-
 
 //如果权限不够，重定向路由
 Route::get('/back',function(){

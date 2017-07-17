@@ -27,6 +27,5 @@ class Dis extends Model
      */
     protected $guarded = [];
 
-
-    
+    public $timezone= false;
 }
