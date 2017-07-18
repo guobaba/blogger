@@ -103,7 +103,7 @@ class PersonalController extends Controller
 //        dd($re);
             //如果成功跳转到列表页  失败返回修改页
             if($re){
-                return redirect('admin/index');
+                return redirect('admin/info');
             }else{
                 return back()->with('error','修改失败');
             }

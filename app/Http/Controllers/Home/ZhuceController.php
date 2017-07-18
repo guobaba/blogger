@@ -33,6 +33,7 @@ class ZhuceController extends Controller
         // id       id
         // token    token
         $id= DB::table('user')->insertGetId($data);
+//        DB::table('personal')->insertGetId($)
         //dd($id);
         if($id){
            self::mailto($data['user_email'],$id,$data['user_token']);

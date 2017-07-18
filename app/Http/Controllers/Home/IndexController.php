@@ -70,7 +70,7 @@ class IndexController extends CommonController
 //         dd($article);
 //        根据id获取当前的文章分类
        $art =   Article::join('category','article.cate_id','=','category.cate_id')->where('art_id',$id)->first();
-//        dd($art);
+//       dd($art);
 //        上一篇  下一篇
       $article1 = Article::orderBy('art_id','desc')->where('art_id','<',$id)->first();
 //      dd($articles);
@@ -81,9 +81,9 @@ class IndexController extends CommonController
 
     
 //        相关文章
-        $rel =  Article::where('cate_id',$art->cate_id)->take(4)->get();
-//        dd($rel);
-        return view('home.new',compact('art','article1','article2','rel'));
+        $rel =  Article::where('cate_id',$art['cate_id'])->take(4)->get();
+//      dd($rel);
+        return view('home.new',compact('art','article1','article2','rel',$dis));
     }
 
     public function dis($id){

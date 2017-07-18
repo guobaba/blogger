@@ -62,8 +62,8 @@
                   margin-left: 200px;
                 }
             </style>
-             <div> 
-       
+             <div>
+           @if(!(empty($dis)))
           @foreach($dis as $k=>$v)
              <div>
                <span>{{$v['user_name']}}</span>---回复----
@@ -71,6 +71,7 @@
                <span >{!!$v['dis_content']!!}</span><button id="art"  data-dis_id='{{$v['dis_id']}}' user_id="{{$v['user_id']}}">回复</button>
              </div><hr>
           @endforeach
+           @endif
   
           </div>
            <form  class="am-form am-g" action="{{url('/dis/0')}}" method="post">

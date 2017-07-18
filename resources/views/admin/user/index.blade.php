@@ -1,9 +1,10 @@
 @extends('layouts.admin')
 @section('content')
     <!--面包屑导航 开始-->
-    <div class="crumb_warp">
-        <!--<i class="fa fa-bell"></i> 欢迎使用登陆网站后台，建站的首选工具。-->
-        <i class="fa fa-home"></i> <a href="#">首页</a> &raquo; <a href="#">用戶管理</a> &raquo; 添加用戶
+    <div class="result_wrap">
+        <div class="result_title">
+            <h1>快捷操作</h1>
+        </div>
     </div>
     <!--面包屑导航 结束-->
 
@@ -26,11 +27,7 @@
         <div class="result_wrap">
             <!--快捷导航 开始-->
             <div class="result_content">
-                <div class="short_wrap">
-                    <a href="{{url('admin/user/create')}}"><i class="fa fa-plus"></i>新增用户</a>
-                    <a href="#"><i class="fa fa-recycle"></i>批量删除</a>
-                    <a href="#"><i class="fa fa-refresh"></i>更新排序</a>
-                </div>
+
             </div>
             <!--快捷导航 结束-->
         </div>
@@ -41,6 +38,7 @@
                     <tr>
                         <th class="tc">ID</th>
                         <th>用户名</th>
+                        <th>邮箱</th>
                         <th>时间</th>
                         <th>操作</th>
                     </tr>
@@ -50,6 +48,7 @@
                                 <a href="#">{{$v->user_id}}</a>
                             </td>
                             <td>{{$v->user_name}}</td>
+                            <td>{{$v->user_email}}</td>
                             <td>{{date('Y-m-d H:i:s')}}</td>
                             <td>
                                 <a href="{{url('admin/auth/'.$v->user_id)}}">授权</a>

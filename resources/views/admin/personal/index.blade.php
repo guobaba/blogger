@@ -3,7 +3,9 @@
     <!--面包屑导航 开始-->
     <div class="crumb_warp">
         <!--<i class="fa fa-bell"></i> 欢迎使用登陆网站后台，建站的首选工具。-->
-        <i class="fa fa-home"></i> <a href="{{url('admin/index')}}}">首页</a> &raquo; <a href="{{url('admin/user')}}}">用戶管理</a> &raquo; 添加用戶
+        <div class="result_title">
+            <h1>快捷操作</h1>
+        </div>
     </div>
     <!--面包屑导航 结束-->
 
@@ -14,13 +16,14 @@
 
 
         <div class="result_wrap">
+            <div style="float: left;margin-left: 30px;margin-top: 30px">
+                <img src="{{url($personal['pers_avatar'])}}" alt="" name="pic" id="pic" style="width:170px;height: 240px" >
+            </div>
             <div class="result_content">
-                <div style="width:80px;">
-                    <img src="{{url($personal['pers_avatar'])}}" alt="" name="pic" id="pic" style="width:80px;" >
-                </div>
+
                 <div id="touxiang">
                     <form action="{{url('admin/personal/'.$personal['pers_id'])}}" method='POST' id="art_form">
-                        <table >
+                        <table cellpadding="3" cellspacing="0" style="width: 60%;margin:auto;left;margin-left: 30px;margin-top: 30px">
                             {{csrf_field()}}
                             <input type="hidden" name="_method" value="PUT">
                             @if (count($errors) > 0)

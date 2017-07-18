@@ -1,32 +1,13 @@
 @extends('layouts.admin')
 @section('content')
     <!--面包屑导航 开始-->
-    <div class="crumb_warp">
-        <!--<i class="fa fa-bell"></i> 欢迎使用登陆网站后台，建站的首选工具。-->
-        <i class="fa fa-home"></i> <a href="#">首页</a> &raquo; <a href="#">角色管理</a> &raquo; 添加角色
-    </div>
     <!--面包屑导航 结束-->
 
-    <!--结果页快捷搜索框 开始-->
-    {{--<div class="search_wrap">--}}
-        {{--<form action="{{url('admin/link')}}" method="get">--}}
-            {{--<table class="search_tab">--}}
-                {{--<tr>--}}
-                    {{--<th width="70">关键字:</th>--}}
-                    {{--<td><input type="text" name="keywords" placeholder="关键字"--}}
-                               {{--value="@if(empty($key)) @else{{$key}}  @endif"--}}
-                        {{--></td>--}}
-                    {{--<td><input type="submit" name="sub" value="查询"></td>--}}
-                {{--</tr>--}}
-            {{--</table>--}}
-        {{--</form>--}}
-    {{--</div>--}}
-    <!--结果页快捷搜索框 结束-->
 
     <!--搜索结果页面 列表 开始-->
     <div class="result_wrap">
         <div class="result_title">
-            <h3>快捷操作</h3>
+            <h1>快捷操作</h1>
             @if(session('error'))
                 <p style="background:#f0ad4e">  {{session('error')}}</p>
             @endif
@@ -36,9 +17,6 @@
             <!--快捷导航 开始-->
             <div class="result_content">
                 <div class="short_wrap">
-                    <a href="{{url('admin/link/create')}}"><i class="fa fa-plus"></i>新增角色</a>
-                    {{--<a href="#"><i class="fa fa-recycle"></i>批量删除</a>--}}
-                    {{--<a href="#"><i class="fa fa-refresh"></i>更新排序</a>--}}
                 </div>
             </div>
             <!--快捷导航 结束-->
@@ -69,7 +47,12 @@
 
                     @endforeach
                 </table>
-
+                <?php
+                $key = empty($key)?'':$key;
+                ?>
+                <div class="page_list">
+                    {!! $data->appends(['keywords' => $key])->render() !!}
+                </div>
             </div>
         </div>
     </form>

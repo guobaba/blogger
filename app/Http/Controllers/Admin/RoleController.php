@@ -17,7 +17,15 @@ class RoleController extends Controller
         // 获取所有的角色
         $roles = Role::get();
         // 获取所有的权限
-        $permissions = Permission::get();
+        $permissions = Permission::get()->toArray();
+//    foreach ($permissions as $v)
+//    {
+//        if(substr($v['name'],0,strpos($v['name'],'@'))=="App\Http\Controllers\Admin\IndexController"){
+//            dump($v['name']);
+//        }
+//
+//    }
+//        dd($permissions[0]['name']);
         return view('admin.role.addpermission',compact('roles','permissions'));
     }
 
