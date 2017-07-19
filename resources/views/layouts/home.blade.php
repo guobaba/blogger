@@ -24,7 +24,20 @@
 </head>
 
 <body id="blog">
-
+@if(!session('user_home'))
+<li class="zhuce"><a href="{{url('home/login/login')}}">登录</a>---<a href="{{url('home/zhuce/add')}}">注册</a></li>
+@else
+<li class="zhuce">-<a href="{{url('home/login/del')}}">退出登录</a></li>
+@endif
+<style>
+    .zhuce{
+      margin-top: -35px;
+     position:absolute;right:40px;
+     font-size: 20px;
+     color: #ccc;
+     list-style-type:none;
+         }
+</style>
 <header class="am-g am-g-fixed blog-fixed blog-text-center blog-header">
     <div class="am-u-sm-8 am-u-sm-centered">
         <img width="200" src="/uploads/201707132122123652.jpg" alt="Amaze UI Logo"/>

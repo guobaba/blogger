@@ -26,6 +26,7 @@ Route::group(['namespace'=>'Home'],function(){
 	// 详情页路由
 	Route::get('a/{id}','IndexController@article');
     Route::post('/dis/{id}','IndexController@dis');
+   
 });
 
 //如果权限不够，重定向路由

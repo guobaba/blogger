@@ -73,23 +73,20 @@ class IndexController extends CommonController
 //        dd($art);
 //        上一篇  下一篇
       $article1 = Article::orderBy('art_id','desc')->where('art_id','<',$id)->first();
+
 //      dd($articles);
        $article2 = Article::orderBy('art_id','asc')->where('art_id','>',$id)->first();
 
        $dis = Dis::join('user','discuss.user_id','=','user.user_id')->where('art_id',$id)->get();
 
-       //dd($dis);
-    
-//        相关文章
-        $rel =  Article::where('cate_id',$art->cate_id)->take(4)->get();
-//        dd($rel);
-        return view('home.new',compact('art','article1','article2','rel','dis'));
+     
+        return view('home.new',compact('art','article1','article2','dis'));
     }
 
     public function dis($id){
         //dd(Input::except('_token'));
         if(!session('user_home')){
-          return "你好，清闲登录！";
+          return "你好，请先登录！";
         }
         $input = Input::except('_token');
         $input['dis_time'] =time();

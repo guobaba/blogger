@@ -41,7 +41,7 @@ class Cate extends Model
                 foreach ($cate as $m=>$n){
 //                    当前分类是正在遍历的一级类的子分类
                    if($v->cate_id == $n->cate_pid){
-                        $cate[$m]['_name'] = "|-|-".$cate[$m]->cate_name;
+                        $cate[$m]['_name'] = "|-|---".$cate[$m]->cate_name;
                         $arr[] = $cate[$m];
                    }
                 }

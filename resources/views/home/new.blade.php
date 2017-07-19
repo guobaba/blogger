@@ -25,7 +25,19 @@
         {!!$art->art_content!!}
         </div>
       </article>
-   
+    <ul class="am-pagination">
+    @if(empty($article1))
+    <li class="am-pagination-prev">没有上一篇了</li>
+    @else
+     <li class="am-pagination-prev"><a href="/a/{{$article1->art_id}}">上一篇：{{$article1->art_title}}</a></li>
+     @endif
+
+    @if(empty($article1))
+    <li class="am-pagination-next">没有下一篇了</li>
+    @else
+     <li class="am-pagination-next"><a href="/a/{{$article2->art_id}}">下一篇：{{$article2->art_title}}</a></li>
+     @endif
+    </ul>
         
         <div class="am-g blog-article-widget blog-article-margin">
           <div class="am-u-lg-4 am-u-md-5 am-u-sm-7 am-u-sm-centered blog-text-center">
