@@ -33,7 +33,7 @@
                             <select name="cate_id">
                                 <option value="0">==顶级文章==</option>
                                 @foreach($cate as $k=>$v)
-                                     <option value="{{$v->cate_id}}">{{$v->_name}}</option>
+                                     <option value="{{$v['cate_id']}}">{{$v->_name}}</option>
                                 @endforeach
                             </select>
                         </td>

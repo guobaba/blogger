@@ -37,6 +37,7 @@ class ZhuceController extends Controller
         //dd($id);
         if($id){
            self::mailto($data['user_email'],$id,$data['user_token']);
+           return redirect('home/login/login');
         }
         //dd($data);       
         

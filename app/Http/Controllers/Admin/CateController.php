@@ -44,20 +44,12 @@ class CateController extends Controller
      */
     public function index(Request $request)
     {
-//        $cate = Cate::orderBy('cate_order','asc')->get();
-//        if($request ->has('keywords')){
-           if($request ->has('keywords')){
-            $key = trim($request->input('keywords'));
-            
-           // dd($key);
-            $cate = Cate::where('cate_name','like',"%".$key."%")->paginate(2);
-             return view('admin.cate.index',['data'=>$cate,'key'=>$key]);
-        }else{
-            $cate = Cate::orderBy('cate_order','asc')->paginate(2);
-            return view('admin.cate.index',['data'=>$cate]);  
-        }
-        //$cate = (new  Cate)->tree();
-//        dd($cate);
+       
+       
+    
+        $cate = (new  Cate)->tree();
+
+        return view('admin.cate.index',['data'=>$cate]);
         
     }
 
@@ -82,6 +74,7 @@ class CateController extends Controller
     public function store(Request $request)
     {
         $input = Input::except('_token');
+       
 //        dd($input);
         $re = Cate::create($input);
         if($re){

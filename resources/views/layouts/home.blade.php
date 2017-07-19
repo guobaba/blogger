@@ -21,16 +21,31 @@
   <link rel="stylesheet" href="/home/assets/css/amazeui.min.css">
   <link rel="stylesheet" href="/home/assets/css/app.css">
   <script type="text/javascript" src="{{asset('/admin/style/js/jquery.js')}}"></script>
+  <style>
+    .zhuce{
+      margin-top: -35px;
+     position:absolute;
+     right: 174px;
+     top: 30px;
+     font-size: 20px;
+     color: #ccc;
+     list-style-type:none;
+         }
+  </style>
 </head>
 
 <body id="blog">
+@if(!session('user_home'))
+<li class="zhuce"><a href="{{url('home/login/login')}}">登录</a>---<a href="{{url('home/zhuce/add')}}">注册</a></li>
+@else
+<li class="zhuce">-<a href="{{url('home/login/del')}}">退出登录</a></li>
+@endif
+
 
 <header class="am-g am-g-fixed blog-fixed blog-text-center blog-header" style="width: 1180px;">
-    {{--src="{{asset('/admin/style/js/jquery.js')}}"--}}
     <div class="class="am-g am-g-fixed blog-fixed blog-text-center blog-header"" style="background: url(/home/images/3.gif) ;background-position: -15px ; width:1180px;height:80px;">
         <div style="margin-top: 0px;"><h1>欢迎进入华北F4的博客</h1></div>
         <div style="margin-top: 0px;">掉头一去是风吹黑发，回首再来已雪满白头</div>
-    </div>
 </header>
 <hr>
 <!-- nav start -->

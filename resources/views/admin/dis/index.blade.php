@@ -36,34 +36,27 @@
             <div class="result_content">
                 <table class="list_tab">
                     <tr>
-                        <th class="tc">ID</th>
-                        <th>评论人</th>
-                        <th>评论的文章</th>
+                      
+                        <th>评论人ID</th>
+                       
                         <th>评论内容</th>
-                        <th>评论时间</th>
-                        <th>回复内容</th>
-                        <th>回复时间</th>
+                        <th>评论时间</th> 
+                       
                         <th>操作</th>
                     </tr>
                    @foreach($data as $k=>$v)
                         <tr>
                             
                             <td>{{$v->dis_id}}</td>
-                            <td>{{$v->dis_name}}</td>
-                            <td>{{$v->cate_name}}</td>
-                            <td>{{$v->dis_content}}</td>
+                            
+                           
+                            <td>{!!$v->dis_content!!}</td>
                             <td>{{date('Y-m-d H:i:s',$v->dis_time)}}</td>
-                            <td>{!!date($v->dis_reply)!!}</td>
-                            <td>{{date('Y-m-d H:i:s',$v->re_time)}}</td>
+                           
                             <td>
                                 
                                 <a href="javascript:;" onclick="Delete('{{$v->dis_id}}')" >删除</a>
-                                @if($v->dis_status == 1)
-                                <a href="{{url('admin/dis/insert/'.$v->dis_id)}}" onclick="">回复</a>
-                                @endif
-                                @if($v->dis_status == 0)
-                                <a href="{{url('admin/dis/insert/'.$v->dis_id)}}" onclick="">已回复</a>
-                                @endif
+                              
                             </td>
                         </tr>
                     @endforeach

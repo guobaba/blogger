@@ -45,7 +45,7 @@
       <h1><a href="/">Amaze UI</a> </h1>
   </div>    
   <div class="log-re">
-    <button type="button" class="am-btn am-btn-default am-radius log-button">登 录</button>
+    <a href="{{url('home/login/login')}}"><button type="button" class="am-btn am-btn-default am-radius log-button">登 录</button></a>
   </div> 
 </header>
 

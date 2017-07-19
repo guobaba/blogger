@@ -66,6 +66,7 @@ class ArticleController extends Controller
     {
 
         $cate = (new Cate)->tree();
+
         return view('admin.article.add',compact('cate'));
     }
 
@@ -79,6 +80,7 @@ class ArticleController extends Controller
     {
 //        获取请求中的所有数据，除了_token  file_upload
         $input = Input::except('_token','file_upload','');
+
         $input['art_time'] = time();
 //        dd($input);
 
