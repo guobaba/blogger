@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 use App\Http\Model\Dis;
 use App\Http\Model\User;
+use App\Http\Model\Personal;
 use App\Services\OSS;
 class IndexController extends CommonController
 {
@@ -23,15 +24,22 @@ class IndexController extends CommonController
         //获取页面所需要的数据
     //      图文文章  $pic   6
         $pic = Article::orderBy('art_time','desc')->take(4)->get();
-
+        $cate_id = $pic->toArray()[0]['cate_id'];
+        $aa = Cate::where('cate_pid',$cate_id)->get();
+//        dd($aa);
+//        $cate_pid = $aa->toArray();
+//        dd($cate_pid);
 
         //分页文章  $art
         $art = Article::orderBy('art_time','desc')->paginate(4);
+        $arts = Article::orderBy('art_view','desc')->paginate(4);
 
-        //友情链接  $link
-        $link = Link::all();
 
-        return view('home.index',compact('pic','art','link'));
+        //个人用户中心
+        $per = personal::where('user_id',session('user')->toArray()['user_id'])->get()->toArray();
+    
+       
+        return view('home.index',compact('pic','art','link','per','arts','aa'));
 
     }
 
@@ -47,11 +55,12 @@ class IndexController extends CommonController
        //根据id查出当前分类的数据
        $cate = Cate::find($id);
        //获取当前分类下的文章
-       $art = Article::orderBy('art_time','desc')->where('cate_id',$id)->paginate(4);
+       $art  = Article::orderBy('art_time','desc')->where('cate_id',$id)->paginate(4);
+       $arts = Article::orderBy('art_view','desc')->paginate(4);
        //当前分类下的二级分类
        $submenu = Cate::where('cate_id',$id)->take(4)->get();
        //展示分类视图,将查出的数据绑定到视图上
-       return view('home.list',compact('cate','art','submenu'));
+       return view('home.list',compact('cate','art','submenu','arts'));
     }
 
     /**
@@ -69,6 +78,7 @@ class IndexController extends CommonController
         $article = Article::where('art_id',$id)->increment('art_view');
 //         dd($article);
 //        根据id获取当前的文章分类
+
        $art =   Article::join('category','article.cate_id','=','category.cate_id')->where('art_id',$id)->first();
 //       dd($art);
 //        上一篇  下一篇
@@ -80,7 +90,6 @@ class IndexController extends CommonController
 
        $dis = Dis::join('user','discuss.user_id','=','user.user_id')->where('art_id',$id)->get();
        return view('home.new',compact('art','article1','article2','dis'));
-
     }
 
     public function dis($id){
