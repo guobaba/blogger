@@ -8,19 +8,16 @@
        
           <h1 class="am-article-title blog-text-center">{{$art->art_title}}</h1>
           <p class="am-article-meta blog-text-center">
-              <span><a href="#" class="blog-color">{{$art->cate_name}} &nbsp;</a></span>-
-              <span><a href="#"></a></span>-
-              <span><a href="#">{{date('Y-m-d',$art->art_time)}}</a></span>
+              <span><a href="/" class="blog-color">{{$art->cate_name}} &nbsp;</a></span>-
+              <span><a href="/"></a></span>
+              <span><a href="/">{{date('Y-m-d',$art->art_time)}}</a></span>
           </p>
         </div>        
         <div class="am-article-bd">
         <img src="{{$art->art_thumb}}" alt="" class="blog-entry-img blog-article-margin">          
         <p class="class="am-article-lead"">
          {{$art->art_tag}} <br>
-／{{$art->art_editor}}<br> <br>
-     
-
-
+        {{$art->art_editor}}<br>
         </p>
         {!!$art->art_content!!}
         </div>
@@ -28,23 +25,16 @@
    
         
         <div class="am-g blog-article-widget blog-article-margin">
-          <div class="am-u-lg-4 am-u-md-5 am-u-sm-7 am-u-sm-centered blog-text-center">
-            <span class="am-icon-tags"> &nbsp;</span><a href="#">标签</a> , <a href="#">TAG</a> , <a href="#">啦啦</a>
-            <hr>
-            <a href=""><span class="am-icon-qq am-icon-fw am-primary blog-icon"></span></a>
-            <a href=""><span class="am-icon-wechat am-icon-fw blog-icon"></span></a>
-            <a href=""><span class="am-icon-weibo am-icon-fw blog-icon"></span></a>
-          </div>
         </div>
 
         <hr>
         <div class="am-g blog-author blog-article-margin">
           <div class="am-u-sm-3 am-u-md-3 am-u-lg-2">
-            <img src="assets/i/f15.jpg" alt="" class="blog-author-img am-circle">
+            <img src="/home/assets/i/f15.jpg" alt="" class="blog-author-img am-circle">
           </div>
           <div class="am-u-sm-9 am-u-md-9 am-u-lg-10">
-          <h3><span>作者 &nbsp;: &nbsp;</span><span class="blog-color">amazeui</span></h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <h3><span>作者 &nbsp;: &nbsp;</span><span class="blog-color">华北F4</span></h3>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           </div>
         </div>
         <hr>
@@ -63,7 +53,7 @@
                 }
             </style>
              <div> 
-       
+       @if(!empty($dis))
           @foreach($dis as $k=>$v)
              <div>
                <span>{{$v['user_name']}}</span>---回复----
@@ -71,6 +61,7 @@
                <span >{!!$v['dis_content']!!}</span><button id="art"  data-dis_id='{{$v['dis_id']}}' user_id="{{$v['user_id']}}">回复</button>
              </div><hr>
           @endforeach
+        @endif
   
           </div>
            <form  class="am-form am-g" action="{{url('/dis/0')}}" method="post">

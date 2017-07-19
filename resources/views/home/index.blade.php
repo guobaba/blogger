@@ -9,8 +9,9 @@
     <ul class="am-slides">
     @foreach($adv as $k=>$v)
       <li>
-            <img src="{{$v->adv_img}}">
+          <a href="{{$v->adv_link}}">   <img src="{{$v->adv_img}}"></a>
       </li>
+
       @endforeach
 
 
@@ -31,6 +32,7 @@
                 <span><a href="" class="blog-color">添加时间：{{date('Y-m-d',$vv->art_time)}}</a></span><br>
                 <span>关键字：{{$vv->art_tag}}</span><br>
                 <span>作者：{{$vv->art_editor}}</span><br>
+                <span>描述: {{$vv->art_description}}....</span><br>
                 <h1><a href="/a/{{$vv->art_id}}">
                 {{$vv->art_title}}
                 <p><a href="" class="blog-continue"></a></p>
@@ -47,13 +49,15 @@
 
     <div class="am-u-md-4 am-u-sm-12 blog-sidebar">
         <div class="blog-sidebar-widget blog-bor">
-            <h2 class="blog-text-center blog-title"><span>About ME</span></h2>
-            <img src="assets/i/f14.jpg" alt="about me" class="blog-entry-img" >
-            <p>妹纸</p>
-            <p>
-        我是妹子UI，中国首个开源 HTML5 跨屏前端框架
-        </p><p>我不想成为一个庸俗的人。十年百年后，当我们死去，质疑我们的人同样死去，后人看到的是裹足不前、原地打转的你，还是一直奔跑、走到远方的我？</p>
+            <h2 class="blog-text-center blog-title"><span>About Me</span></h2>
+            <img src="home/assets/i/f14.jpg" alt="about we" class="blog-entry-img" >
+      @foreach($per as $k=>$v)      
+            <p>{{$v['pers_name']}}</p>
+            <p>{{$v['pers_city']}}</p>
+            <p>{{$v['pers_shuo']}}</p>
+      @endforeach
         </div>
+
         <div class="blog-sidebar-widget blog-bor">
             <h2 class="blog-text-center blog-title"><span>Contact ME</span></h2>
             <p>
@@ -67,12 +71,9 @@
         <div class="blog-clear-margin blog-sidebar-widget blog-bor am-g ">
             <h2 class="blog-title"><span>TAG cloud</span></h2>
             <div class="am-u-sm-12 blog-clear-padding">
-            <a href="" class="blog-tag">amaze</a>
-            <a href="" class="blog-tag">妹纸 UI</a>
-            <a href="" class="blog-tag">HTML5</a>
-            <a href="" class="blog-tag">这是标签</a>
-            <a href="" class="blog-tag">Impossible</a>
-            <a href="" class="blog-tag">开源前端框架</a>
+            @foreach($art as $k=>$v)
+            <a href="/a/{{$v->art_id}}" class="blog-tag"> {{$v->art_title}}</a>
+            @endforeach
             </div>
         </div>
         <div class="blog-sidebar-widget blog-bor">

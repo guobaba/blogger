@@ -88,6 +88,10 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>['admin.login
     Route::resource('link','LinkController');
     Route::any('link/changeorder','LinkController@changeOrder');
 
+    //通告管理
+ //   Route::resource('ann','AnnController');
+  //  Route::any('ann/changeorder','AnnController@changeOrder');
+
     // 角色模块
     Route::resource('role','RoleController');
 

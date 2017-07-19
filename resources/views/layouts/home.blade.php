@@ -27,7 +27,7 @@
 
 <header class="am-g am-g-fixed blog-fixed blog-text-center blog-header">
     <div class="am-u-sm-8 am-u-sm-centered">
-        <img width="200" src="/uploads/201707132122123652.jpg" alt="Amaze UI Logo"/>
+        <img width="200" src="/uploads/201707191439112732.jpg" alt="Amaze UI Logo"/>
         <h2 class="am-hide-sm-only">我自狂歌空度日，飞扬跋扈为谁雄！</h2>
     </div>
 </header>
@@ -45,7 +45,7 @@
     </ul>
     <form class="am-topbar-form am-topbar-right am-form-inline" role="search">
       <div class="am-form-group">
-        <input type="text" class="am-form-field am-input-sm" placeholder="搜索">
+ 
       </div>
     </form>
   </div>
@@ -57,26 +57,23 @@
 @show
 
 
-
 <!-- content end -->
  <footer class="blog-footer">
     <div class="am-g am-g-fixed blog-fixed am-u-sm-centered blog-footer-padding">
         <div class="am-u-sm-12 am-u-md-4- am-u-lg-4">
-            <h3>模板简介</h3>
-            <p class="am-text-sm">这是一个使用amazeUI做的简单的前端模板。<br> 博客/ 资讯类 前端模板 <br> 支持响应式，多种布局，包括主页、文章页、媒体页、分类页等<br>嗯嗯嗯，不知道说啥了。外面的世界真精彩<br><br>
-            Amaze UI 使用 MIT 许可证发布，用户可以自由使用、复制、修改、合并、出版发行、散布、再授权及贩售 Amaze UI 及其副本。</p>
+            <h3>博客简介</h3>
+            <p class="am-text-sm">这是一个二期项目F4倾力合作完成的博客。<br> 博客/ 资讯类信息 <br> 包括PHP学习课程,心灵鸡汤,个人感悟,个人心得等信息<br>嗯嗯嗯，不知道说啥了。外面的世界真精彩<br><br>
+            Hellow The World &nbsp;&nbsp;我相信在我们共同的努力下,未来的世界一定会更精彩,加油↖(^ω^)↗,My brother!</p>
         </div>
         <div class="am-u-sm-12 am-u-md-4- am-u-lg-4">
-            <h3>社交账号</h3>
-            <p>
-                <a href=""><span class="am-icon-qq am-icon-fw am-primary blog-icon blog-icon"></span></a>
-                <a href=""><span class="am-icon-github am-icon-fw blog-icon blog-icon"></span></a>
-                <a href=""><span class="am-icon-weibo am-icon-fw blog-icon blog-icon"></span></a>
-                <a href=""><span class="am-icon-reddit am-icon-fw blog-icon blog-icon"></span></a>
-                <a href=""><span class="am-icon-weixin am-icon-fw blog-icon blog-icon"></span></a>
-            </p>
+            <h3>友情链接</h3>
+        <ul class="website">
+          @foreach($link as $k=>$v)
+         <li><a href="{{$v->link_url}}">{{$v->link_name}}</a></li>
+         @endforeach
+         </ul>
             <h3>Credits</h3>
-            <p>我们追求卓越，然时间、经验、能力有限。Amaze UI 有很多不足的地方，希望大家包容、不吝赐教，给我们提意见、建议。感谢你们！</p>          
+            <p>我们追求卓越，然时间、经验、能力有限。F4这有很多不足的地方，希望大家包容、不吝赐教，给我们提意见、建议。感谢你们！</p>          
         </div>
         <div class="am-u-sm-12 am-u-md-4- am-u-lg-4">
               <h1>我们站在巨人的肩膀上</h1>
@@ -84,9 +81,9 @@
             <p>
                 <ul>
                     <li>jQuery</li>
-                    <li>Zepto.js</li>
-                    <li>Seajs</li>
-                    <li>LESS</li>
+                    <li>HTML5</li>
+                    <li>Javascript</li>
+                    <li>CSS</li>
                     <li>...</li>
                 </ul>
             </p>

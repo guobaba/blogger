@@ -45,7 +45,7 @@
       <h1><a href="/">Amaze UI</a> </h1>
   </div>    
   <div class="log-re">
-    <button type="button" class="am-btn am-btn-default am-radius log-button">登 录</button>
+    <a type="button" href="{{url('/home/login/login')}}"  class="am-btn am-btn-default am-radius log-button">登 录</a>
   </div> 
 </header>
 
@@ -54,7 +54,7 @@
   <div class="am-u-lg-3 am-u-md-6 am-u-sm-8 am-u-sm-centered log-content">
     <h1 class="log-title am-animation-slide-top">AmazeUI</h1>
     <br>
-    <form method="post" action="{{url('home/zhuce/insert')}}" class="am-form" id="log-form">
+    <form method="post" action="{{url('home/login/login')}}" class="am-form" id="log-form">
     {{ csrf_field() }}
       <div class="am-input-group am-radius am-animation-slide-left">       
         <input type="email" name="user_email" id="email" class="am-radius" data-validation-message="请输入正确邮箱地址" placeholder="邮箱" required/>
