@@ -37,7 +37,7 @@ class LoginController extends Controller
             //用户名存在  检测密码
             if(Hash::check($data['user_pass'],$res['user_pass'])){
                 session(['user_home'=>$res]);
-                return redirect('/home/index');
+                return redirect('/');
             }else{
                 return back() -> with('error','邮箱或密码错误');
             }

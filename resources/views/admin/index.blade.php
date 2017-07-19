@@ -8,12 +8,11 @@
 			<div class="logo">后台管理模板</div>
 			<ul>
 				<li><a href="#" class="active">首页</a></li>
-				<li><a href="#">管理页</a></li>
 			</ul>
 		</div>
 		<div class="top_right">
 			<ul>
-				<li><a href="{{url('admin/personal')}}">{{session('user')->user_name}}</a></li>
+				<li><a href="{{url('admin/personal')}}" target="main">{{session('user')->user_name}}</a></li>
 				<li><a href="{{url('admin/repass')}}" target="main">修改密码</a></li>
 				<li><a href="{{url('admin/quit')}}">退出</a></li>
 			</ul>

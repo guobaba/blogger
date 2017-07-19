@@ -57,26 +57,24 @@
          
        
             <h3 class="blog-comment">评论</h3>
-            <style>
-                #button{
-                  margin-left: 200px;
-                }
-            </style>
-             <div> 
+           
+         
        
           @foreach($dis as $k=>$v)
              <div>
-               <span>{{$v['user_name']}}</span>---回复----
-               <span>{{$v['user_name']}}</span>---：
-               <span >{!!$v['dis_content']!!}</span><button id="art"  data-dis_id='{{$v['dis_id']}}' user_id="{{$v['user_id']}}">回复</button>
+
+               <span>{{session('user_home')['user_email']}}</span>---回复----
+               @if(!$v['re_id'])
+                <span>文章</span><br>
+               @else
+                <span>{{$v['user_name']}}</span>---：<br>
+               @endif
+               <span >回复内容:{!!$v['dis_content']!!}</span><br><button class="art"  data-dis_id='{{$v['dis_id']}}' user_id="{{$v['user_id']}}" style="background:yellowgreen">点我选择</button>
              </div><hr>
           @endforeach
   
-          </div>
-           <form  class="am-form am-g" action="{{url('/dis/0')}}" method="post">
-                  
-           
-                          <tr>
+     
+                     <tr>
                     <th>评论：</th>
                     <td>
                      {{csrf_field()}}
@@ -96,41 +94,40 @@
 
                     </td>
                 </tr>
-                          <a id="tjiao" href="javascript:;" art_id="{{$art->art_id}}">提交</a>
+                          
+        <button id="tjiao" href="javascript:;" art_id="{{$art->art_id}}" style="background:orange">提  交</button>
+                  
+           
+                   
 
                 
   
-        </form>
+      
 <script>
-    
+
     $(function(){
+     
         var form = null;
         var id = 0;
         var art_id = 0;
-        $('button').click(function(){
+        $('.art').click(function(){
           id = $(this).attr('data-dis_id');
+          console.log(id);
           
-
-
         });
+
         $('#tjiao').click(function(){
               form  = ue.getContent();
               art_id = $(this).attr('art_id');
-              user_id = $('#art').attr('user_id');
-             
-
-              $.post("{{url('/dis/')}}/"+id,{'_token':"{{csrf_token()}}",'dis_content':form,'art_id':art_id,'re_id':id,'user_id':user_id},function(data){
-                 if(data.status == 0){
-                     location.href = location.href;
-                     layer.msg(data.msg, {icon: 6});
-                 }else{
-                     location.href = location.href;
-                     layer.msg(data.msg, {icon: 5});
-                 }
+            
+              $.post("{{url('/dis/')}}/"+id,{'_token':"{{csrf_token()}}",'dis_content':form,'art_id':art_id,'re_id':id},function(data){
+                    location.href = location.href;
+                    alert(data);                     
               })
-      });
-   
-  })
+       })
+
+    });
+
 
 </script>
 

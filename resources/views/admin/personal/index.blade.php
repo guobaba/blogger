@@ -14,13 +14,14 @@
 
 
         <div class="result_wrap">
+            <div style="float: left;margin-left: 30px;margin-top: 30px">
+                <img src="{{url($personal['pers_avatar'])}}" alt="" name="pic" id="pic" style="width:170px;height: 240px" >
+            </div>
             <div class="result_content">
-                <div style="width:80px;">
-                    <img src="{{url($personal['pers_avatar'])}}" alt="" name="pic" id="pic" style="width:80px;" >
-                </div>
+
                 <div id="touxiang">
                     <form action="{{url('admin/personal/'.$personal['pers_id'])}}" method='POST' id="art_form">
-                        <table >
+                        <table cellpadding="3" cellspacing="0" style="width: 60%;margin:auto;left;margin-left: 30px;margin-top: 30px">
                             {{csrf_field()}}
                             <input type="hidden" name="_method" value="PUT">
                             @if (count($errors) > 0)

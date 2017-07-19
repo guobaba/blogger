@@ -82,6 +82,7 @@ class CateController extends Controller
     public function store(Request $request)
     {
         $input = Input::except('_token');
+       
 //        dd($input);
         $re = Cate::create($input);
         if($re){
