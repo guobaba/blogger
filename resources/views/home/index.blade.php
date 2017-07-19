@@ -6,10 +6,10 @@
 
 <div class="am-g am-g-fixed blog-fixed am-u-sm-centered blog-article-margin">
     <div data-am-widget="slider" class="am-slider am-slider-b1" data-am-slider='{&quot;controlNav&quot;:false}' >
-    <ul class="am-slides">
+    <ul class="am-slides"">
     @foreach($adv as $k=>$v)
       <li>
-            <img src="{{$v->adv_img}}">
+            <img src="{{$v->adv_img}}" style="height: 600px;width: 1200px;">
       </li>
       @endforeach
 

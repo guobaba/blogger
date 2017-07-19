@@ -25,10 +25,11 @@
 
 <body id="blog">
 
-<header class="am-g am-g-fixed blog-fixed blog-text-center blog-header">
-    <div class="am-u-sm-8 am-u-sm-centered">
-        <img width="200" src="/uploads/201707132122123652.jpg" alt="Amaze UI Logo"/>
-        <h2 class="am-hide-sm-only">我自狂歌空度日，飞扬跋扈为谁雄！</h2>
+<header class="am-g am-g-fixed blog-fixed blog-text-center blog-header" style="width: 1180px;">
+    {{--src="{{asset('/admin/style/js/jquery.js')}}"--}}
+    <div class="class="am-g am-g-fixed blog-fixed blog-text-center blog-header"" style="background: url(/home/images/3.gif) ;background-position: -15px ; width:1180px;height:80px;">
+        <div style="margin-top: 0px;"><h1>欢迎进入华北F4的博客</h1></div>
+        <div style="margin-top: 0px;">掉头一去是风吹黑发，回首再来已雪满白头</div>
     </div>
 </header>
 <hr>
@@ -36,7 +37,7 @@
 <nav class="am-g am-g-fixed blog-fixed blog-nav">
 <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only blog-button" data-am-collapse="{target: '#blog-collapse'}" ><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
 
-  <div class="am-collapse am-topbar-collapse" id="blog-collapse">
+  <div class="am-collapse am-topbar-collapse" id="blog-collapse" style="background: #f0f0f0;">
     <ul class="am-nav am-nav-pills am-topbar-nav">
       <li class="am-active"><a href="{{'/'}}">首页</a></li>
      @foreach($nav as $kk=>$vv)
