@@ -61,8 +61,14 @@ class IndexController extends CommonController
        $arts = Article::orderBy('art_view','desc')->paginate(4);
        //当前分类下的二级分类
        $submenu = Cate::where('cate_id',$id)->take(4)->get();
+        //个人用户中心
+        if(session('user'))
+        {
+            $per = personal::where('user_id',session('user')->toArray()['user_id'])->get()->toArray();
+
+        }
        //展示分类视图,将查出的数据绑定到视图上
-       return view('home.list',compact('cate','art','submenu','arts'));
+       return view('home.list',compact('cate','art','submenu','arts','per'));
     }
 
     /**
