@@ -38,7 +38,7 @@ class ZhuceController extends Controller
         //dd($id);
         if($id){
            self::mailto($data['user_email'],$id,$data['user_token']);
-           return redirect('home/login/login');
+           return "注册成功,请到邮箱激活";
         }
         //dd($data);       
         
@@ -46,6 +46,7 @@ class ZhuceController extends Controller
     public function getZhuce(Request $request){
 
         $arr = $request ->all();
+
       
         //dd($arr);
         $user_token = DB::table('user')->where('user_id',$arr['user_id'])->select('user_token')->first();
@@ -53,7 +54,7 @@ class ZhuceController extends Controller
             // 修改数据库
             $res = DB::table('user')->where('user_id',$arr['user_id'])->update(['user_status'=>1,'user_token'=>str_random(50)]);
             if($res){
-                echo '注册成功';
+                return redirect('/home/login/login');
             }else{
                 echo '注册失败';
             }

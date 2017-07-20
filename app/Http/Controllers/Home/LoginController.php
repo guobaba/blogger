@@ -32,9 +32,14 @@ class LoginController extends Controller
         $data = $request -> except('_token');
         //查询
         $res = DB::table('user')->where('user_email',$data['user_email'])->first();
+
         if(!$res){
             return back() -> with('error','该邮箱不存在');
         }else{
+            //判断邮箱状态
+            if(!$res['user_status']== 1){
+                return back() -> with('error','该邮箱未激活');
+            }
             //用户名存在  检测密码
             if(Hash::check($data['user_pass'],$res['user_pass'])){
                 session(['user_home'=>$res]);
