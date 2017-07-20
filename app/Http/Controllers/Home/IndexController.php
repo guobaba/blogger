@@ -34,8 +34,6 @@ class IndexController extends CommonController
         //分页文章  $art
         $art = Article::orderBy('art_time','desc')->paginate(4);
         $arts = Article::orderBy('art_view','desc')->paginate(4);
-
-
         //个人用户中心
         if(session('user'))
         {
