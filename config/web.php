@@ -1,5 +1,5 @@
 <?php return array (
-  'web_title' => '郭林森的博客',
+  'web_title' => '郭林森',
   'blogger' => 'guolinsen',
   'keywords' => '到底,约不约',
   'description' => '我的大刀早已饥渴难耐了',

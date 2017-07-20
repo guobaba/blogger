@@ -1,0 +1,337 @@
+[33mcommit a13168460d36b238f24156b2395e25ae3deb0ede[m
+Merge: 71ce56e 689b634
+Author: guobaba <939818543@qq.com>
+Date:   Wed Jul 19 23:54:41 2017 +0800
+
+    项目完成 --07/19--朱小宁
+
+[33mcommit 71ce56e0c246515e38f9c17daffabf16f9b9d1bc[m
+Author: guobaba <939818543@qq.com>
+Date:   Wed Jul 19 21:52:38 2017 +0800
+
+    项目完成--07/19--郭林森
+
+[33mcommit 689b634265b50c0b3003d0059ce107dfcd5ffe9b[m
+Author: zxn920930 <1329664060@qq.com>
+Date:   Wed Jul 19 20:48:49 2017 +0800
+
+    朱小宁
+
+[33mcommit 4693e4718bd7fafe8e53feba86050a415bbd7eba[m
+Author: zxn920930 <1329664060@qq.com>
+Date:   Wed Jul 19 14:15:54 2017 +0800
+
+    朱小宁
+
+[33mcommit fdfddf03c4433da8252595514e6395b6d0abc1f6[m
+Author: guobaba <939818543@qq.com>
+Date:   Tue Jul 18 12:08:57 2017 +0800
+
+    后台优化--07/18--郭林森
+
+[33mcommit f553fa45e5b1843629857c2644abfd1bc7ecd3fb[m
+Merge: c431958 cd2243f
+Author: guobaba <939818543@qq.com>
+Date:   Mon Jul 17 16:26:54 2017 +0800
+
+    前台留言--07/17--朱小宁
+
+[33mcommit c4319588c18d23b057aca059b6bfff10a2158f23[m
+Merge: cb734a7 1dfe9a5
+Author: guobaba <939818543@qq.com>
+Date:   Mon Jul 17 16:21:42 2017 +0800
+
+    前台注册登录--07/17--卢克
+
+[33mcommit cb734a7aed9953ec58680cb822fd09195c6ae747[m
+Author: guobaba <939818543@qq.com>
+Date:   Mon Jul 17 16:17:47 2017 +0800
+
+    无改动
+
+[33mcommit cd2243f082be32501cf4c384b687e32d549f0508[m
+Author: zxn920930 <1329664060@qq.com>
+Date:   Mon Jul 17 16:16:54 2017 +0800
+
+    留言
+
+[33mcommit 1dfe9a5b870eba0d5f443893d7029795456290af[m
+Author: 19cm <1605838512@qq.com>
+Date:   Mon Jul 17 16:01:24 2017 +0800
+
+    卢克提交
+
+[33mcommit d796bb607626a74dd3f3b382e962dc75c1f3a00f[m
+Merge: ec44d01 ed6e76c
+Author: guobaba <939818543@qq.com>
+Date:   Mon Jul 17 09:12:58 2017 +0800
+
+    前台第一次--07/17--郭林森
+
+[33mcommit ec44d016599f3e6dfe82181cf6f9fa7d60916d42[m
+Merge: 01eb537 bee4445
+Author: guobaba <939818543@qq.com>
+Date:   Fri Jul 14 22:42:48 2017 +0800
+
+    前后台第一次合并完成
+
+[33mcommit 01eb53707076d5b41946562ca04576d8ccc333f7[m
+Author: guobaba <939818543@qq.com>
+Date:   Fri Jul 14 21:38:35 2017 +0800
+
+    郭林森后台完成-07-14
+
+[33mcommit ed6e76c6dc57d37fe10225840e569e5cfc042179[m
+Author: wuzhengmin <970716450@qq.com>
+Date:   Fri Jul 14 21:20:24 2017 +0800
+
+    吴正民ds
+
+[33mcommit bee444509ed15dda56e574d8b42925af81262571[m
+Author: zxn920930 <1329664060@qq.com>
+Date:   Fri Jul 14 21:07:13 2017 +0800
+
+    前台页面
+
+[33mcommit 4ab7544c939ffc4be0139ab13531b082d309b40b[m
+Author: zxn920930 <1329664060@qq.com>
+Date:   Fri Jul 14 20:56:39 2017 +0800
+
+    前台
+
+[33mcommit 1a88a85c783e95e4fcaee1f7e4339e43d8309754[m
+Author: guobaba <939818543@qq.com>
+Date:   Thu Jul 13 20:55:29 2017 +0800
+
+    后台完成0713-郭林森
+
+[33mcommit c6786e23da8be68d205aa09f3e249bdc325b1852[m
+Author: guobaba <939818543@qq.com>
+Date:   Thu Jul 13 16:20:37 2017 +0800
+
+    卢克--前台合并完成--0713--
+
+[33mcommit c3befbe8e9f63ded9c68de98a47e896660423ba5[m
+Merge: 1a9e087 44efc01
+Author: guobaba <939818543@qq.com>
+Date:   Thu Jul 13 16:04:21 2017 +0800
+
+    Merge remote-tracking branch 'origin/luke'
+
+[33mcommit 1a9e087aa6f98656ea156d1ad50c28752e062dd6[m
+Author: guobaba <939818543@qq.com>
+Date:   Thu Jul 13 16:03:15 2017 +0800
+
+    后台首页显示
+
+[33mcommit 1da29f6e8ffbe0059c0513154eddf3d463b4c520[m
+Author: guobaba <939818543@qq.com>
+Date:   Thu Jul 13 16:02:01 2017 +0800
+
+    后台首页显示
+
+[33mcommit 44efc0135e2b98f5418375a8e3fa8b1331e80af3[m
+Author: 19cm <1605838512@qq.com>
+Date:   Thu Jul 13 15:55:12 2017 +0800
+
+    劳资第一次提交
+
+[33mcommit ef2be8e0fe07a20e761f4ac8a6127fac6a005c7a[m
+Merge: de0ef74 d86357a
+Author: guobaba <939818543@qq.com>
+Date:   Wed Jul 12 21:24:04 2017 +0800
+
+    test2124
+
+[33mcommit de0ef746896c170c256b20c7d0362987b1ca91fb[m
+Author: guobaba <939818543@qq.com>
+Date:   Wed Jul 12 20:58:36 2017 +0800
+
+    第四次
+
+[33mcommit 10deaa1fbd545e710c79f14f3fb6cded54db69b3[m
+Author: guobaba <939818543@qq.com>
+Date:   Wed Jul 12 20:36:45 2017 +0800
+
+    第四次
+
+[33mcommit a58cdd8882834ecef01317b4e84c1f5840b03cc3[m
+Author: guobaba <939818543@qq.com>
+Date:   Wed Jul 12 20:33:09 2017 +0800
+
+    第四次--07/12--
+
+[33mcommit b4908ba9a742bea4c5d07f29ad032e04af26e610[m
+Merge: b50fae1 1e1e145
+Author: guobaba <939818543@qq.com>
+Date:   Wed Jul 12 20:26:52 2017 +0800
+
+    第四次合并完成--07/12--朱小宁
+
+[33mcommit b50fae1567952a184804762cb2921278cfa4e854[m
+Author: guobaba <939818543@qq.com>
+Date:   Wed Jul 12 19:08:40 2017 +0800
+
+    授权管理
+
+[33mcommit 1e1e145f69b05953acd1a580c1e06646a91084dd[m
+Author: zxn920930 <1329664060@qq.com>
+Date:   Wed Jul 12 16:55:40 2017 +0800
+
+    这个
+
+[33mcommit e020de7c92a6563c275c5695c868a4eb101be0bf[m
+Author: zxn920930 <1329664060@qq.com>
+Date:   Wed Jul 12 14:08:16 2017 +0800
+
+    广告
+
+[33mcommit d86357a50e46c195c79bb5a1239d83c0b94428ea[m
+Merge: cc45a13 8ba25db
+Author: guobaba <939818543@qq.com>
+Date:   Tue Jul 11 08:44:10 2017 +0800
+
+    第四次合并成功--导航---7/11--吴正民
+
+[33mcommit cc45a13909ab579a8b8a1a817c19d8cafc7fed54[m
+Author: guobaba <939818543@qq.com>
+Date:   Tue Jul 11 08:41:10 2017 +0800
+
+    角色管理/权限管理/授权管理---7/11--郭林森
+
+[33mcommit 8ba25dbd218146379c83818560f60a8c79d47128[m
+Author: wuzhengmin <970716450@qq.com>
+Date:   Mon Jul 10 22:38:49 2017 +0800
+
+    导航模块第一次2017-7-10
+
+[33mcommit 07dabc2d1f1936d3650e0a637794d92354cce05d[m
+Merge: 07d5af3 fed143e
+Author: wuzhengmin <970716450@qq.com>
+Date:   Mon Jul 10 20:21:06 2017 +0800
+
+    Merge remote-tracking branch 'origin/master' into 619
+
+[33mcommit 07d5af38c0fc020d404a18144f345ed333267090[m
+Author: wuzhengmin <970716450@qq.com>
+Date:   Mon Jul 10 20:08:40 2017 +0800
+
+    友情链接‘
+
+[33mcommit fed143ed74a3bf848acdb36b9c112a037231843a[m
+Merge: b1ed190 82d93b8
+Author: guobaba <939818543@qq.com>
+Date:   Mon Jul 10 14:29:20 2017 +0800
+
+    第三次合并成功--07/10--文章/留言--朱小宁
+
+[33mcommit b1ed190c9276f1595b7bd18c2e0a96096b813fcd[m
+Author: guobaba <939818543@qq.com>
+Date:   Mon Jul 10 14:13:51 2017 +0800
+
+    个人信息--07/10--郭林森
+
+[33mcommit 82d93b85a5cf671cb4cf4af980f77a4df362505a[m
+Author: zxn920930 <1329664060@qq.com>
+Date:   Mon Jul 10 14:10:39 2017 +0800
+
+    留言管理
+
+[33mcommit 8468be202ff489aff9b38e5fa7a4165d1db3283c[m
+Merge: cd995c2 4928c72
+Author: guobaba <939818543@qq.com>
+Date:   Sat Jul 8 17:19:17 2017 +0800
+
+    Merge remote-tracking branch 'origin/zxn'
+
+[33mcommit cd995c245df15d18fe7f9e42d4bbc04e5da41161[m
+Author: guobaba <939818543@qq.com>
+Date:   Sat Jul 8 17:11:59 2017 +0800
+
+    第三次修改--7/8--郭林森
+
+[33mcommit 4928c72886914f6d22d85c0cd4a694320e29e18c[m
+Author: zxn920930 <1329664060@qq.com>
+Date:   Sat Jul 8 16:59:19 2017 +0800
+
+    zxn
+
+[33mcommit 800355535923cd22e4fe1639e121218549638e13[m
+Author: zxn920930 <1329664060@qq.com>
+Date:   Sat Jul 8 16:40:31 2017 +0800
+
+    留言管理
+
+[33mcommit 6d4309bf6397542cd4cbffc540ef69aae4f2a101[m
+Merge: fffdd20 cc5aa0d
+Author: guobaba <939818543@qq.com>
+Date:   Sat Jul 8 12:57:36 2017 +0800
+
+    第二次合并成功.朱小宁
+
+[33mcommit fffdd208fd1254867c6626893f6d59c721b7ae7a[m
+Author: guobaba <939818543@qq.com>
+Date:   Sat Jul 8 12:50:13 2017 +0800
+
+    配置管理--7/8--郭林森
+
+[33mcommit cc5aa0d090a8c3f38a429b96b35246371db33851[m
+Author: wuzhengmin <970716450@qq.com>
+Date:   Fri Jul 7 19:25:53 2017 +0800
+
+    友情四
+
+[33mcommit 974da2b4a501e21a5bb51bb5db41af1de03b5b5f[m
+Author: wuzhengmin <970716450@qq.com>
+Date:   Fri Jul 7 19:23:12 2017 +0800
+
+    友情链接第三次
+
+[33mcommit 79ce3e53eb3840f04c9af304b8689c1f519f3066[m
+Author: wuzhengmin <970716450@qq.com>
+Date:   Fri Jul 7 19:08:16 2017 +0800
+
+    wu
+
+[33mcommit 558419133b54dc5fb68842d9ee6bc8640e06779a[m
+Merge: 7fa4681 5dd0d5d
+Author: guobaba <939818543@qq.com>
+Date:   Fri Jul 7 16:38:17 2017 +0800
+
+    0707合并完成--郭林森
+
+[33mcommit 5175bebcf2c658a3421320b374a76312a9ac4a99[m
+Author: wuzhengmin <970716450@qq.com>
+Date:   Fri Jul 7 15:35:42 2017 +0800
+
+    wu
+
+[33mcommit 7fa4681fd74fe687dbfd149fdecb9c047d87adef[m
+Author: guobaba <939818543@qq.com>
+Date:   Fri Jul 7 14:13:34 2017 +0800
+
+    配置-0707--郭林森
+
+[33mcommit 5dd0d5d5f1a382b052c052a313a049c09a26efa9[m
+Author: zxn920930 <1329664060@qq.com>
+Date:   Thu Jul 6 22:54:41 2017 +0800
+
+    分类管理
+
+[33mcommit 149fca182abd31ab4e821ec63a5580b5b89d0dc5[m
+Author: zxn920930 <1329664060@qq.com>
+Date:   Thu Jul 6 22:31:00 2017 +0800
+
+    分类管理
+
+[33mcommit 1427b047eead347c1aa1867acf83a215fe8f1aa1[m
+Author: guobaba <939818543@qq.com>
+Date:   Thu Jul 6 14:25:52 2017 +0800
+
+    后台登录,用户管理0706-郭林森
+
+[33mcommit f6702c77db1bccf100adc732f544a9c0d2e1d7c6[m
+Author: guobaba <939818543@qq.com>
+Date:   Mon Jul 3 19:56:00 2017 +0800
+
+    项目初始化

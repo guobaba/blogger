@@ -54,7 +54,7 @@
   <div class="am-u-lg-3 am-u-md-6 am-u-sm-8 am-u-sm-centered log-content">
     <h1 class="log-title am-animation-slide-top">AmazeUI</h1>
     <br>
-    <form method="post" action="{{url('home/login/login')}}" class="am-form" id="log-form">
+    <form method="post" action="{{url('home/zhuce/insert')}}" class="am-form" id="log-form">
     {{ csrf_field() }}
       <div class="am-input-group am-radius am-animation-slide-left">       
         <input type="email" name="user_email" id="email" class="am-radius" data-validation-message="请输入正确邮箱地址" placeholder="邮箱" required/>
@@ -73,12 +73,6 @@
       <br>
       <button type="submit" class="am-btn am-btn-primary am-btn-block am-btn-lg am-radius am-animation-slide-bottom log-animation-delay-b">注 册</button>
       <br>
-      <div class="am-btn-group am-animation-slide-bottom log-animation-delay-b">
-      <p>支持第三方注册</p>
-      <a href="#" class="am-btn am-btn-secondary am-btn-sm"><i class="am-icon-github am-icon-sm"></i> Github</a>
-      <a href="#" class="am-btn am-btn-success am-btn-sm"><i class="am-icon-google-plus-square am-icon-sm"></i> Google+</a>
-      <a href="#" class="am-btn am-btn-primary am-btn-sm"><i class="am-icon-stack-overflow am-icon-sm"></i> stackOverflow</a>
-      </div>
     </form>
   </div>
   </div>

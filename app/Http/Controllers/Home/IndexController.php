@@ -25,7 +25,8 @@ class IndexController extends CommonController
     //      图文文章  $pic   6
         $pic = Article::orderBy('art_time','desc')->take(4)->get();
         $cate_id = $pic->toArray()[0]['cate_id'];
-        $aa = Cate::where('cate_pid',$cate_id)->get();
+//        dd($cate_id);
+        $aa = Cate::where('cate_id',$cate_id)->get();
 //        dd($aa);
 //        $cate_pid = $aa->toArray();
 //        dd($cate_pid);

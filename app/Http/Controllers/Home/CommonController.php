@@ -28,10 +28,15 @@ class CommonController  extends Controller
         $hot = Article::orderBy('art_view','desc')->take(5)->get();
         //轮播图
         $adv = Adv::orderBy('adv_time','desc')->take(4)->get();
-
+        $pre = new Personal;
         //后台用户信息
-        $per = personal::where('user_id',session('user')->toArray()['user_id'])->get()->toArray();
+        if(!is_null(session('user'))){
+            $pre -> where('user_id',session('user')->user_id);
+        }else{
+            $pre -> where('user_id',14);
+        }
 
+        $per = $pre->first()->toArray();
         //友情链接  $link
         $link = Link::all();
 
@@ -42,7 +47,7 @@ class CommonController  extends Controller
         view()->share('hot', $hot);
         view()->share('adv', $adv);
         view()->share('link', $link);
-        view()->share('per', $per);
+        view()->share('per', [$per]);
         view()->share('aa', $aa);
 
     }

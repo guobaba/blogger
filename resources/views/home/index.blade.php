@@ -73,7 +73,7 @@
             <h2 class="blog-title"><span>类型</span></h2>
             <div class="am-u-sm-12 blog-clear-padding">
             @foreach($aa as $k=>$v)
-            <a href="/cate/{{$v->cate_id}}" class="blog-tag"> {{$v->cate_name}}</a>
+            <a href="/cate/{{$v->cate_id}}" class="blog-tag">{{$v->cate_name}}</a>
             @endforeach
             </div>
         </div>

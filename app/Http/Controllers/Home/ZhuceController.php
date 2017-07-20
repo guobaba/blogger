@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Http\Model\Personal;
 use Illuminate\Http\Request;
 use Hash;
 use DB;
@@ -65,5 +66,10 @@ class ZhuceController extends Controller
            
             $m->to($email)->subject('这是一封注册邮件!');
         });
-    }    
+    }
+
+    public function getTest()
+    {
+        dd(Personal::where('user_id',session('user')->toArray()['user_id'])->first(),Personal::where('user_id',14)->first());
+    }
 }
