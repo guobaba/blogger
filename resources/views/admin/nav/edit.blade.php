@@ -25,7 +25,7 @@
                 <tr>
                     <th>Url：</th>
                     <td>
-                        <input type="text" name="nav_url" class="lg" value="{{$data->nav_url}}">
+                        <input type="text" name="nav_url" class="lg" value="{{$data->nav_url}}" />
                     </td>
                 </tr>
                 <tr>

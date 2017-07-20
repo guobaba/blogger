@@ -41,7 +41,7 @@ class IndexController extends CommonController
 
         }
        
-        return view('home.index',compact('pic','art','link','per','arts','aa'));
+        return view('home.index',compact('pic','art','link','per','arts','aa'));    
 
     }
 
