@@ -37,8 +37,11 @@ class IndexController extends CommonController
 
 
         //个人用户中心
-        $per = personal::where('user_id',session('user')->toArray()['user_id'])->get()->toArray();
-    
+        if(session('user'))
+        {
+          $per = personal::where('user_id',session('user')->toArray()['user_id'])->get()->toArray();
+
+        }
        
         return view('home.index',compact('pic','art','link','per','arts','aa'));
 

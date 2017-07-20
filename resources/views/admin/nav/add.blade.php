@@ -51,7 +51,7 @@
                 <tr>
                     <th>Url：</th>
                     <td>
-                        <input type="text" name="nav_url" class="lg" value="http://www.blogger.com/">
+                        <input type="text" name="nav_url" class="lg" value="https://">
                     </td>
                 </tr>
                 <tr>
