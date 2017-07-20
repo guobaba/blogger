@@ -17,7 +17,7 @@ class LoginController extends Controller
      */
     public function getLogin()
     {
-        
+
         return view('home.login.login');
     }
 
@@ -38,6 +38,9 @@ class LoginController extends Controller
             //用户名存在  检测密码
             if(Hash::check($data['user_pass'],$res['user_pass'])){
                 session(['user_home'=>$res]);
+//                if($res['user_status'] != 1){
+//                     return back()->with('error','邮箱未激活,请激活!');
+//                }
                 return redirect('/');
             }else{
                 return back() -> with('error','邮箱或密码错误');
