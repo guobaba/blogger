@@ -75,6 +75,7 @@ class NavController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         // 获取请求中的所有数据，除了_token
         $input = Input::except('_token');
         // 通过Nav模型的create添加到数据库
@@ -119,9 +120,12 @@ class NavController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+
         $nav = Nav::find($id);
         //从请求中获取传过来的数据
         $input = Input::except('_token','_method');
+        // dd($request->all());
         $res = $nav->update($input);
         if($res){
             return redirect('admin/nav');

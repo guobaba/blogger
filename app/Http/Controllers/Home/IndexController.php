@@ -34,13 +34,14 @@ class IndexController extends CommonController
         //分页文章  $art
         $art = Article::orderBy('art_time','desc')->paginate(4);
         $arts = Article::orderBy('art_view','desc')->paginate(4);
-
-
         //个人用户中心
-        $per = personal::where('user_id',session('user')->toArray()['user_id'])->get()->toArray();
-    
+        if(session('user'))
+        {
+          $per = personal::where('user_id',session('user')->toArray()['user_id'])->get()->toArray();
+
+        }
        
-        return view('home.index',compact('pic','art','link','per','arts','aa'));
+        return view('home.index',compact('pic','art','link','per','arts','aa'));    
 
     }
 

@@ -19,13 +19,13 @@
                 <tr>
                     <th>描述：</th>
                     <td>
-                        <input type="text" name="nav_name" value="{{$data->nav_alias}}">
+                        <input type="text" name="nav_alias" value="{{$data->nav_alias}}" /> 
                     </td>
                 </tr>
                 <tr>
                     <th>Url：</th>
                     <td>
-                        <input type="text" name="nav_url" class="lg" value="{{$data->nav_url}}">
+                        <input type="text" name="nav_url" class="lg" value="{{$data->nav_url}}" />
                     </td>
                 </tr>
                 <tr>
