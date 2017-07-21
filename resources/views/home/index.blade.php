@@ -53,7 +53,7 @@
             @foreach($per as $k=>$v)
                 <img src="{{$v['pers_avatar']}}" alt="关于我" class="blog-entry-img" >
                 <p>{{$v['pers_name']}}</p>
-                <p>{{$v['pers_city']}}</p>
+                <p>{{$v['pers_email']}}</p>
                 <p>{{$v['pers_shuo']}}</p>
             @endforeach
         </div>

@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Input;
 
 class IndexController extends Controller
 {
-
+ 
     public function test()
     {
         $user = User::find(12)->roles()->get();
