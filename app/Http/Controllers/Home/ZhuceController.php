@@ -12,10 +12,11 @@ use Mail;
 class ZhuceController extends Controller
 {
     public function getAdd(){
-        
-
        return view('home.zhuce.add');
     }
+
+    /*
+    */
     public function postInsert(Request $request){
         //检测数据是否必填
         //处理数据
@@ -37,17 +38,26 @@ class ZhuceController extends Controller
 //        DB::table('personal')->insertGetId($)
         //dd($id);
         if($id){
-           self::mailto($data['user_email'],$id,$data['user_token']);
-           return "注册成功,请到邮箱激活";
+            $details['det_id']=$id;
+            $details_id= DB::table('user_details')->insertGetId($details);
+            if($details_id == $id){
+                self::mailto($data['user_email'],$id,$data['user_token']);
+                return "注册成功,请到邮箱激活";
+            }else{
+
+            }
+            
         }
         //dd($data);       
         
     }
+
+
+    /*
+    */
     public function getZhuce(Request $request){
 
         $arr = $request ->all();
-
-      
         //dd($arr);
         $user_token = DB::table('user')->where('user_id',$arr['user_id'])->select('user_token')->first();
         if($arr['user_token'] == $user_token['user_token']){
@@ -62,6 +72,10 @@ class ZhuceController extends Controller
             return redirect('/home/zhuce/add')->with('error','验证失败，请注册');       
          }
     }
+
+    /*
+
+    */
     public static function mailto($email,$id,$token){
         Mail::send('home.mail.index', ['id' => $id,'user_token'=>$token,'user_email'=>$email], function ($m) use ($email) {
            
@@ -69,6 +83,8 @@ class ZhuceController extends Controller
         });
     }
 
+    /*
+    */
     public function getTest()
     {
         dd(Personal::where('user_id',session('user')->toArray()['user_id'])->first(),Personal::where('user_id',14)->first());

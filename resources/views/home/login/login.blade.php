@@ -7,7 +7,7 @@
   <meta name="keywords" content="">
   <meta name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>LOG-IN | Amaze UI Examples</title>
+  <title>登录</title>
 
   <!-- Set render engine for 360 browser -->
   <meta name="renderer" content="webkit">
@@ -66,18 +66,19 @@
       </div>      
       <br>
       <div class="am-input-group am-animation-slide-left log-animation-delay">       
-        <input type="password" name="user_pass" class="am-form-field am-radius log-input" placeholder="密码" minlength="6" required>
+        <input type="password" id="password" name="user_pass" class="am-form-field am-radius log-input" placeholder="密码"  required>
         <span class="am-input-group-label log-icon am-radius"><i class="am-icon-lock am-icon-sm am-icon-fw"></i></span>
-      </div>      
+      </div>
       <br>
       <button type="submit" class="am-btn am-btn-primary am-btn-block am-btn-lg am-radius am-animation-slide-bottom log-animation-delay">登 录</button>
             <p class="am-animation-slide-bottom log-animation-delay"><a href="#">忘记密码?</a></p>
 
     </form>
+
   </div>
   </div>
   <footer class="log-footer">   
-    © 2014 AllMobilize, Inc. Licensed under MIT license.
+    底部信息用常量
   </footer>
 </div>
 
@@ -93,5 +94,43 @@
 <![endif]-->
 <script src="/home/assets/js/amazeui.min.js"></script>
 <script src="/home/assets/js/app.js"></script>
+<script>
+    $('#log-form').submit(function(){
+
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: "/home/login/dologin",
+            type:"post",
+            data:{
+                password:$('#password').val(),
+                user:$('#doc-vld-email-2-1').val(),
+                _token:'{{csrf_token()}}'
+            },
+            dataType:"json",
+            success: function(msg){
+                if(msg ==1){
+                    alert('登录成功点击确定跳转到首页');
+                    location.href="{{url('/')}}";
+                }else if(msg ==2){
+                    alert('密码错误');
+                }else{
+                    alert('用户名不存在');
+                }
+            },
+            error: function(errors) {
+                var json=JSON.parse(errors.responseText);
+                var str='';
+                for (var i in json){
+                    str += json[i]+'  ';
+                }
+                alert(str);
+                return false;
+            },
+        });
+        return false;
+    });
+</script>
 </body>
 </html>

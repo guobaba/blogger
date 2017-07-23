@@ -31,14 +31,25 @@
      color: #ccc;
      list-style-type:none;
          }
+    .geren{
+      margin-top: -35px;
+      position:absolute;
+      left:174px;
+      top:30px;
+      font-size:30px;
+      color:#ccc;
+      list-style-type:none;
+    }
   </style>
 </head>
 
 <body id="blog">
+
 @if(!session('user_home'))
 <li class="zhuce"><a href="{{url('home/login/login')}}">登录</a>---<a href="{{url('home/zhuce/add')}}">注册</a></li>
 @else
-<li class="zhuce">-<a href="{{url('home/login/del')}}">退出登录</a></li>
+<li class="zhuce"><a href="{{url('home/login/del')}}">退出登录</a></li>
+<li class="geren"><a href="{{url('home/info/index')}}">个人中心</a></li>
 @endif
 
 <header class="am-g am-g-fixed blog-fixed blog-text-center blog-header" style="width: 1180px;">

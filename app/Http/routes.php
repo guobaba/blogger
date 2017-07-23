@@ -21,9 +21,10 @@ Route::post('/home/subscibe','Home\SubscibeController@subscibe');
 // 退订
 Route::controller('/subscibe','Home\SubscibeController');
 
-
-// 前台路由
-Route::group(['namespace'=>'Home'],function(){
+//个人信息页路由
+Route::controller('/home/info','Home\InfoController');
+    // 前台路由
+    Route::group(['namespace'=>'Home'],function(){
     // 前台首页
 	Route::get('/','IndexController@index');
 	// 列表页路由
