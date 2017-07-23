@@ -67,6 +67,10 @@
                 <a href=""><span class="am-icon-reddit am-icon-fw blog-icon"></span></a>
                 <a href=""><span class="am-icon-weixin am-icon-fw blog-icon"></span></a>
             </p>
+            <form action="{{url('/home/subscibe')}}" method="post">
+                {{csrf_field()}}
+                <p><input type="email" name="sub_email" value=""><input type="submit" value="订阅"></p>
+            </form>
         </div>
 
         <div class="blog-clear-margin blog-sidebar-widget blog-bor am-g ">

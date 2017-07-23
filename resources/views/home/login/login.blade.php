@@ -66,7 +66,7 @@
       </div>      
       <br>
       <div class="am-input-group am-animation-slide-left log-animation-delay">       
-        <input type="password" name="user_pass" class="am-form-field am-radius log-input" placeholder="密码" minlength="11" required>
+        <input type="password" name="user_pass" class="am-form-field am-radius log-input" placeholder="密码" minlength="6" required>
         <span class="am-input-group-label log-icon am-radius"><i class="am-icon-lock am-icon-sm am-icon-fw"></i></span>
       </div>      
       <br>

@@ -52,8 +52,19 @@
                             <td>{{date('Y-m-d H:i:s')}}</td>
                             <td>
                                 <a href="{{url('admin/auth/'.$v->user_id)}}">授权</a>
-                                <a href="{{url('admin/user/'.$v->user_id.'/edit')}}">修改</a>
+                                @if(!$v->user_name=='')
+                                    <a href="{{url('admin/user/'.$v->user_id.'/edit')}}">修改</a>
+                                @endif
+                                @if(!$v->user_name=='')
                                 <a href="javascript:;" onclick="DelUser({{$v->user_id}})">删除</a>
+                                @endif
+                                @if($v->user_name=='')
+                                    @if($v->user_status=="1")
+                                    <a href="javascript:;" onclick="Shutup({{$v->user_id}})">禁言</a>
+                                    @elseif($v->user_status=="0")
+                                        <a href="javascript:;" onclick="Shutup({{$v->user_id}})">取消禁言</a>
+                                    @endif
+                                @endif
                             </td>
                         </tr>
                     @endforeach
@@ -92,6 +103,17 @@
                 });
             }, function(){
 
+            });
+        }
+        function Shutup(user_id)
+        {
+            $.get("{{url('admin/shutup?id=')}}"+user_id,{},function (data) {
+
+                if(data.status == 0){
+                    location.href = location.href;
+                }else{
+                    location.href = location.href;
+                }
             });
         }
     </script>

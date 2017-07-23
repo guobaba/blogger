@@ -17,6 +17,24 @@ use Validator;
 
 class UserController extends Controller
 {
+    public function shutup(Request $request)
+    {
+        $id=$request->input('id');
+
+        $user = User::find($id);
+
+        if ($user['user_status'] == 1){
+            $status = $user->update(['user_status'=>"0"]);
+        }else if ($user['user_status'] == 0){
+            $status = $user->update(['user_status'=>"1"]);
+        }
+
+//        \DB::insert('insert into blog_role_user (user_id, role_id) values (?, ?)', [$input['user_id'], $v]);
+
+//        var_dump($status);
+
+    }
+
     public function auth($id)
     {
         // 获取所有的角色
@@ -164,39 +182,39 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-//        dd($request->all());
-        $input =  $request->except(['_token',"_method"]);
-        // 验证规则
-        $role =[
-            'user_name'=>'required|between:6,18',
-        ];
-        // 提示信息
-        $ress=[
-            'user_name.required'=>'必须输入用户名',
-            'user_name.between'=>'用户名长度必须在6-18位之间',
-        ];
-        // 表单验证  select user_name from blog_user where user_name = "$input[user_name]"
-        $validator = Validator::make($input,$role,$ress);
-        if($validator->passes()){
-            $res = User::where('user_name',$request->user_name)->first();
-            if($res){
-                return back()->with('error','用户名已存在');
-            }else{
-                $re = User::where('user_id',$id)->update($input);
-                // 更新是否成功
-                if($re){
-                    // 如果成功,返回到用户列表页
-                    return redirect('admin/user');
+
+            // dd($request->all());
+            $input =  $request->except(['_token',"_method"]);
+            // 验证规则
+            $role =[
+                'user_name'=>'required|between:6,18',
+            ];
+            // 提示信息
+            $ress=[
+                'user_name.required'=>'必须输入用户名',
+                'user_name.between'=>'用户名长度必须在6-18位之间',
+            ];
+            // 表单验证  select user_name from blog_user where user_name = "$input[user_name]"
+            $validator = Validator::make($input,$role,$ress);
+            if($validator->passes()){
+                $res = User::where('user_name',$request->user_name)->first();
+                if($res){
+                    return back()->with('error','用户名已存在');
                 }else{
-                    // 如果失败,返回去
-                    return back()->with('error','修改失败');
+                    $re = User::where('user_id',$id)->update($input);
+                    // 更新是否成功
+                    if($re){
+                        // 如果成功,返回到用户列表页
+                        return redirect('admin/user');
+                    }else{
+                        // 如果失败,返回去
+                        return back()->with('error','修改失败');
+                    }
                 }
+            }else{
+                // 没有通过表单验证
+                return back()->withErrors($validator);
             }
-        }else{
-            // 没有通过表单验证
-            return back()->withErrors($validator);
-        }
 
     }
 

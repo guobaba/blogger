@@ -50,25 +50,56 @@ class IndexController extends CommonController
      *
      * @return \Illuminate\Http\Response
      */
-    public function cate($id)
+    public function cate(Request $request)
     {
-    //分类访问次数加1
-       Cate::where('cate_id',$id)->increment('cate_view');
-       //根据id查出当前分类的数据
-       $cate = Cate::find($id);
-       //获取当前分类下的文章
-       $art  = Article::orderBy('art_time','desc')->where('cate_id',$id)->paginate(4);
-       $arts = Article::orderBy('art_view','desc')->paginate(4);
-       //当前分类下的二级分类
-       $submenu = Cate::where('cate_id',$id)->take(4)->get();
-        //个人用户中心
-        if(session('user'))
+
+        if($request->has('search'))
         {
-            $per = personal::where('user_id',session('user')->toArray()['user_id'])->get()->toArray();
+            $id=empty($request->input('id'))?'':$request->input('id');
+            //根据id查出当前分类的数据
+            $cate = Cate::find($id);
+            //当前分类下的二级分类
+            $submenu = Cate::where('cate_id',$id)->take(4)->get();
+            //个人用户中心
+            if(session('user'))
+            {
+                $per = personal::where('user_id',session('user')->toArray()['user_id'])->get()->toArray();
+
+            }
+            //获取当前分类下的文章
+         $arts  = Article::orderBy('art_time','desc')->where('cate_id',$id)->paginate(4);
+            $art=Article::where('art_title','like','%'.$request->input('search').'%')
+                        ->orwhere('art_editor','like','%'.$request->input('search').'%')
+                        ->orwhere('art_tag','like','%'.$request->input('search').'%')
+                        ->paginate(4);
+            $arr=['search'=>$request->input('search')];
+
+        }else{
+            $id=empty($request->input('id'))?'':$request->input('id');
+            //分类访问次数加1
+            Cate::where('cate_id',$id)->increment('cate_view');
+            //根据id查出当前分类的数据
+            $cate = Cate::find($id);
+            //获取当前分类下的文章
+            $art  = Article::orderBy('art_time','desc')->where('cate_id',$id)->paginate(4);
+            $arts = Article::orderBy('art_view','desc')->paginate(4);
+            //当前分类下的二级分类
+            $submenu = Cate::where('cate_id',$id)->take(4)->get();
+            //个人用户中心
+            if(session('user'))
+            {
+                $per = personal::where('user_id',session('user')->toArray()['user_id'])->get()->toArray();
+
+            }
 
         }
-       //展示分类视图,将查出的数据绑定到视图上
-       return view('home.list',compact('cate','art','submenu','arts','per'));
+
+        //展示分类视图,将查出的数据绑定到视图上
+        return view('home.list',compact('cate','art','submenu','arts','per','arr'));
+
+
+
+
     }
 
     /**

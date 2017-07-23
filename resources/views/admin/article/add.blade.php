@@ -147,9 +147,24 @@
                     <tr>
                         <th></th>
                         <td>
-                            <input type="submit" value="提交">
+                            <input type="submit" id="dd" value="提交">
                             <input type="button" class="back" onclick="history.go(-1)" value="返回">
                         </td>
+                        {{--<script>--}}
+                            {{--$(function(){--}}
+                                {{--$('#dd').click(function(){--}}
+
+                                    {{--$.post("{{url('admin/email')}}",{'_token':"{{csrf_token()}}"},function(data){--}}
+
+                                        {{--if(msg ==1){--}}
+                                            {{--return true;--}}
+                                        {{--}--}}
+                                    {{--});--}}
+                                    {{--return false;--}}
+                                {{--})--}}
+                            {{--})--}}
+
+                        {{--</script>--}}
                     </tr>
                 </tbody>
             </table>

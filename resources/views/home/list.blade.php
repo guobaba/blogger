@@ -2,8 +2,21 @@
 
 @section('content')
 <!-- content srart -->
+<style>
+    ol, ul li {
+        text-align: center;
+        float: left;
+        list-style: none;
+        padding-left: 2em;
+        padding: 0;
+        margin-left: 8px;
+        width: 100px;
+        height: 25px;
+        background: #f5f4f4;
+    }
+</style>
 <div class="am-g am-g-fixed blog-fixed">
-    <div class="am-u-md-8 am-u-sm-12">
+    <div class ="am-u-md-8 am-u-sm-12">
 
 
         @foreach($art as $k=>$v)
@@ -23,13 +36,14 @@
         </article>
         @endforeach
 
+            <div>
+                {!! $art->appends($arr)->render() !!}
+            </div>
    
-        
-        <ul class="am-pagination">
-  <li class="am-pagination-prev"><a href="">&laquo; Prev</a></li>
-  <li class="am-pagination-next"><a href="">Next &raquo;</a></li>
-</ul>
+
     </div>
+
+
   <div class="am-u-md-4 am-u-sm-12 blog-sidebar">
           <div class="blog-sidebar-widget blog-bor">
               <h2 class="blog-text-center blog-title"><span>关于我</span></h2>

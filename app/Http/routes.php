@@ -15,6 +15,11 @@
 Route::controller('/home/zhuce','Home\ZhuceController');
 //前台登录
 Route::controller('/home/login','Home\LoginController');
+// 订阅
+Route::post('/home/subscibe','Home\SubscibeController@subscibe');
+
+// 退订
+Route::controller('/subscibe','Home\SubscibeController');
 
 
 // 前台路由
@@ -22,11 +27,10 @@ Route::group(['namespace'=>'Home'],function(){
     // 前台首页
 	Route::get('/','IndexController@index');
 	// 列表页路由
-	Route::get('cate/{id}','IndexController@cate');
+	Route::get('/cate','IndexController@cate');
 	// 详情页路由
 	Route::get('a/{id}','IndexController@article');
     Route::post('/dis/{id}','IndexController@dis');
-   
 });
 
 //如果权限不够，重定向路由
@@ -58,6 +62,9 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>['admin.login
 
     // 用户模块
     Route::resource('user','UserController');
+    // 禁言
+    Route::get('shutup','UserController@shutup');
+
     // 查看个人信息
     Route::resource('personal','PersonalController');
 
@@ -70,6 +77,8 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>['admin.login
     Route::resource('article','ArticleController');
     Route::any('article/changeorder','ArticleController@changeOrder');
     Route::any('upload','ArticleController@upload');
+    Route::any('email','ArticleController@email');
+
 
 
     //留言管理

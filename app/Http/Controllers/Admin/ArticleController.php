@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use App\Http\Model\Sub;
 use App\Http\Model\Article;
 use App\Http\Model\Cate;
 use Illuminate\Http\Request;
-
+use Mail;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
@@ -86,15 +86,24 @@ class ArticleController extends Controller
 
 //        通过articel模型的create  or   save 添加到数据库
         $re = Article::create($input);
+        $id = $re->art_id;
+//        dd($id);
 
 //        如果成功跳转到文章列表页  如果失败 返回添加页面
         if($re){
-            return redirect('admin/article');
+            $user = Sub::get();
+//            dd($user);
+            foreach ($user as $k=>$v){
+                $email=$v->sub_email;
+                $token=2;
+                self::mailxxoo($email,$id,$token);
+            }
+            return 1;
+            //return redirect('admin/article');
         }else{
             return back()->with('error','添加失败');
         }
     }
-
 
     /**
      * Display the specified resource.
@@ -170,4 +179,19 @@ class ArticleController extends Controller
         }
         return $data;
     }
+
+    public static function mailto($email,$id,$token){
+        Mail::send('home.mail.sub', ['id' => $id,'sub_token'=>$token,'sub_email'=>$email], function ($m) use ($email) {
+
+            $m->to($email)->subject('这是一封订阅邮件!');
+        });
+    }
+
+    public static function mailxxoo($email,$id,$token){
+        Mail::send('home.mail.xxoo', ['id' => $id,'sub_token'=>$token,'sub_email'=>$email], function ($m) use ($email) {
+
+            $m->to($email)->subject('这是一封订阅邮件!');
+        });
+    }
+
 }

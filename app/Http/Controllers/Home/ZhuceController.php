@@ -27,7 +27,7 @@ class ZhuceController extends Controller
         //dd($data);
         $data['user_pass'] = Hash::make($data['user_pass']);
         $data['user_ctime'] = time();
-        $data['user_token'] = str_random(50);
+            $data['user_token'] = str_random(50);
 
         // 3.发送邮件   
         // 给谁发  注册邮箱号
