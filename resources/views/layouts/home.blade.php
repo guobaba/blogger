@@ -57,6 +57,7 @@
      @foreach($nav as $kk=>$vv)
       <li id="{{$vv->nav_id}}"><a href="{{$vv->nav_url}}">{{$vv->nav_name}}</a></li>
      @endforeach
+     <li id="xx"><a href="{{url('home/liuyan/index')}}">给我留言</a></li>
     </ul>
       <form class="am-topbar-form am-topbar-right am-form-inline" role="search">
           <div class="am-form-group">

@@ -65,7 +65,8 @@
             	<h3><i class="fa fa-fw fa-clipboard"></i>留言管理</h3>
                 <ul class="sub_menu">
                     
-                    <li><a href="{{url('admin/dis/index')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>留言列表</a></li> 
+                    <li><a href="{{url('admin/dis/index')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>文章评论</a></li> 
+                    <li><a href="{{url('admin/dis/yonghu')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>用户留言</a></li> 
                 </ul>
             </li>
             <li>
