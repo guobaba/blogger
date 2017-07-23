@@ -22,6 +22,13 @@
         {!!$art['art_content']!!}
         @endif
         </div>
+
+    <!-- 收藏 -->
+    <div>
+        
+    </div>
+
+
       </article>
     <ul class="am-pagination">
     @if(empty($article1))

@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="/home/assets/css/amazeui.min.css">
   <link rel="stylesheet" href="/home/assets/css/app.css">
   <script type="text/javascript" src="{{asset('/admin/style/js/jquery.js')}}"></script>
+  <script type="text/javascript" src="{{asset('layer/layer.js')}}"></script>
   <style>
     .zhuce{
       margin-top: -35px;
@@ -117,8 +118,11 @@
     </div>    
     <div class="blog-text-center">© 2015 AllMobilize, Inc. Licensed under MIT license. Made with love By LWXYFER</div>    
   </footer>
-
-
+@if(count($errors) > 0)
+  <script type="text/javascript">
+    layer.msg('@foreach($errors->all() as $v){{$v}}<br/>@endforeach');
+  </script>
+@endif
 
 
 

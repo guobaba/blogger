@@ -73,20 +73,21 @@
 			$(function(){
 				$('#xiugai').click(function(){
 					$.post('/home/info/xiugai',{
-											_token:'{{csrf_token()}}',
-											user_id:$('#user_id').val(),
-											det_name:$('#det_name').val(),
-											det_sex:$('.det_sex:checked').val(),
-											det_brith:$('#det_brith').val(),
-											det_phone:$('#det_phone').val()},function(msg){
-												if(msg == 1){
-													alert('修改成功');
-													location.href=location.href;
-												}else{
-													alert('更新失败')
-												}
-											})
+						_token:'{{csrf_token()}}',
+						user_id:$('#user_id').val(),
+						det_name:$('#det_name').val(),
+						det_sex:$('.det_sex:checked').val(),
+						det_brith:$('#det_brith').val(),
+						det_phone:$('#det_phone').val()},function(msg){
+							if(msg == 1){
+								alert('修改成功');
+								location.href=location.href;
+							}else{
+								alert('更新失败')
+							}
+						})
 				})
 			})
 		</script>
+{{dump($errors->all())}}
 @endsection

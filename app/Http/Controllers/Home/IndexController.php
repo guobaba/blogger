@@ -117,7 +117,12 @@ class IndexController extends CommonController
             }
         }   
         
-
+    public function cang(){
+      dd(Input::except('_token'));
+        if(!session('user_home')){
+            return "你好，请先登录！";
+          }
+    }
       
  
 
