@@ -20,12 +20,11 @@ class NavController extends Controller
     {
         if($request ->has('keywords')){
             $key = trim($request->input('keywords'));
-
             // dd($key);
-            $nav = Nav::where('nav_name','like',"%".$key."%")->paginate(5);
+            $nav = Nav::where('nav_name','like',"%".$key."%")->paginate(10);
             return view('admin.nav.index',['data'=>$nav,'key'=>$key]);
         }else{
-            $data = Nav::orderBy('nav_order','asc')->paginate(5);
+            $data = Nav::orderBy('nav_order','asc')->paginate(10);
             return view('admin.nav.index',compact('data'));
         }
     }

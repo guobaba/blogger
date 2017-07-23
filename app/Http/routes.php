@@ -34,6 +34,7 @@ Route::controller('/home/info','Home\InfoController');
 	// 详情页路由
 	Route::get('a/{id}','IndexController@article');
     Route::post('/dis/{id}','IndexController@dis');
+    Route::post('/home/zan', 'IndexController@zan');
 });
 
 //如果权限不够，重定向路由

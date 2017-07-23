@@ -13,6 +13,7 @@ use App\Http\Model\Dis;
 use App\Http\Model\User;
 use App\Http\Model\Personal;
 use App\Services\OSS;
+use App\Http\Model\Zan;
 class IndexController extends CommonController
 {
     /**
@@ -128,7 +129,12 @@ class IndexController extends CommonController
        $article2 = Article::orderBy('art_id','asc')->where('art_id','>',$id)->first();
 
        $dis = Dis::join('user','discuss.user_id','=','user.user_id')->where('art_id',$id)->get();
-       return view('home.new',compact('art','article1','article2','dis'));
+       // $zan = Zan::join('user','zan.user_id','=','user.user_id')->where('art_id',$id)->first();
+       $str = session('user_home')['user_id'];
+       $zan = \DB::Table('zan')->where('art_id','=',$id)->where('user_id','=',$str)->first();
+       
+       //dd($zan);
+       return view('home.new',compact('art','article1','article2','dis','zan'));
     }
 
     public function dis($id){
@@ -148,9 +154,28 @@ class IndexController extends CommonController
             }
         }   
         
+      public function zan(){
 
+        if(!session('user_home')){
+          return "你好，请先登录！";
+        }
+        $id = Input::except('_token');
+        $id['user_id'] = session('user_home')['user_id'];
+        $res = \DB::table('zan')->insert($id);
+        // dd($res);
+        if($res){
+          \DB::table('article') -> where('art_id',$id['art_id']) -> increment('art_zan');
+          return '点赞成功';
+        }else{
+           return "点赞失败";
+
+        }
+       
+    }
       
- 
+ // 判断同一个art_id下，SESSION中的user_id是否等于$zan表里面的user_id。
+ // 相等，如果点赞了，就显示已点赞；
+ // 如果不等，表明不是同一个用户，background='null',$art['art_zan']正常
 
  
 }

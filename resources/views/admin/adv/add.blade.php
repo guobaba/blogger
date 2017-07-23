@@ -32,7 +32,7 @@
                     <tr>
                         <th>广告名：</th>
                         <td>
-                            <input type="text" name="adv_name" class="lg">
+                            <input type="text" id="nn" name="adv_name" class="lg" autofocus>
                         </td>
                     </tr>
                      <tr>
@@ -118,6 +118,16 @@
                 </tbody>
             </table>
         </form>
+        <script type="text/javascript">
+
+            $('#nn').blur(function(){
+                var x1 = $('#nn').val();
+                if(!x1){
+                    alert('请输入导航名称');
+                }
+            });
+            
+        </script>
     </div>
 @endsection            
                    

@@ -21,6 +21,19 @@
     <!--结果集标题与导航组件 结束-->
 
     <div class="result_wrap">
+    @if (count($errors) > 0)
+            <div class="mark" style="color:red">
+                <ul>
+                    @if(is_object($errors))
+                        @foreach ($errors->all() as $errors)
+                            <li>{{ $errors }}</li>
+                        @endforeach
+                    @else
+                        <li>{{ $errors }}</li>
+                    @endif
+                </ul>
+            </div>
+        @endif
         <form action="{{url('admin/nav')}}" method="post">
             <table class="add_tab">
                 <tbody>
@@ -39,36 +52,46 @@
                 <tr>
                     <th>导航名称：</th>
                     <td>
-                        <input type="text" name="nav_name">
+                        <input id="nn" type="text" name="nav_name" autofocus>
                     </td>
                 </tr>
                 <tr>
                     <th>导航标题：</th>
                     <td>
-                        <input type="text" name="nav_alias">
+                        <input id="tt" type="text" name="nav_alias">
                     </td>
                 </tr>
                 <tr>
                     <th>Url：</th>
                     <td>
-                        <input type="text" name="nav_url" class="lg" value="https://">
+                        <input id="uu" type="text" name="nav_url" class="lg" value="https://">
                     </td>
                 </tr>
                 <tr>
                     <th>排序：</th>
                     <td>
-                        <input type="text" name="nav_order">
+                        <input id="oo" type="text" name="nav_order">
                     </td>
                 </tr>
                 <tr>
                     <th></th>
                     <td>
-                        <input type="submit" value="提交">
+                        <input id="send" type="submit" value="提交">
                         <input type="button" class="back" onclick="history.go(-1)" value="返回">
                     </td>
                 </tr>
                 </tbody>
             </table>
         </form>
+        <script type="text/javascript">
+
+            $('#nn').blur(function(){
+                var x1 = $('#nn').val();
+                if(!x1){
+                    alert('请输入导航名称');
+                }
+            });
+            
+        </script>
     </div>
 @endsection

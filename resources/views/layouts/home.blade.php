@@ -7,6 +7,11 @@
   <meta name="keywords" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>{{Config('web.web_title')}}</title>
+  <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script type="text/javascript" src="{{asset('/admin/style/js/jquery.js')}}"></script>
+  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <meta name="renderer" content="webkit">
   <meta http-equiv="Cache-Control" content="no-siteapp"/>
   <link rel="icon" type="image/png" href="/home/assets/i/favicon.png">
@@ -20,7 +25,8 @@
   <meta name="msapplication-TileColor" content="#0e90d2">
   <link rel="stylesheet" href="/home/assets/css/amazeui.min.css">
   <link rel="stylesheet" href="/home/assets/css/app.css">
-  <script type="text/javascript" src="{{asset('/admin/style/js/jquery.js')}}"></script>
+  <link rel="stylesheet" href="/home/assets/css/demo.css">
+  
   <style>
     .zhuce{
       margin-top: -35px;
@@ -129,14 +135,7 @@
 
 
 
-<!--[if (gte IE 9)|!(IE)]><!-->
-<script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
-<!--<![endif]-->
-<!--[if lte IE 8 ]>
-<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
-<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
-<![endif]-->
+
 <script src="/home/assets/js/amazeui.min.js"></script>
 </body>
 </html>

@@ -22,7 +22,64 @@
         {!!$art['art_content']!!}
         @endif
         </div>
+         <!-- 点赞、打赏功能 -->
+    <div>
+      <button id="zz" 
+        @if($zan)
+          style="background:gold;";
+        @else
+          style = 'background:';
+        @endif
+        ><span id="yy" class="glyphicon glyphicon-thumbs-up animation" aria-hidden="true" title="点赞"></span></button>
+      <span id="zz-txt">{{$art['art_zan']}}</span>
+      <!-- <span id="add-num"><em>+1</em></span> -->
+
+      
+      <button id ='btn'><span class="glyphicon glyphicon-jpy" aria-hidden="" title="打赏我"></span></button>
+      <div id="xo" style="width:100px;height:100px;display:none;">
+        <img src="/home/images/weixin.jpg" alt="">
+      </div>
+
+    </div>
+   
+    <script type="text/javascript">
+
+            // 打赏
+            $('#btn').click(function(){
+                if($('#xo').css('display') =='none'){
+                  $('#xo').fadeIn(1000);
+                }else{
+                  $('#xo').fadeOut(1000);
+                }
+            });
+
+            // 点赞
+            $("#zz").click(function(){
+
+            @if(!$zan)
+              $(this).css('background','gold');
+              $.post("{{url('/home/zan')}}",{'_token':"{{csrf_token()}}",art_id:"{{$art['art_id']}}"},function(data){
+                  location.href = location.href;
+                  alert(data);
+              });
+            @else
+              alert('您已经点过赞了。');
+            @endif
+            });
+            // var text_box = $("#add-num");
+            // var num=parseInt(zz_txt.text());
+            // num += 1;
+            // zz_txt.text(num);
+
+            
+            
+    </script>
       </article>
+
+
+
+
+
     <ul class="am-pagination">
     @if(empty($article1))
     <li class="am-pagination-prev">没有上一篇了</li>

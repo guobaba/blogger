@@ -193,5 +193,7 @@ class ArticleController extends Controller
             $m->to($email)->subject('这是一封订阅邮件!');
         });
     }
-
 }
+
+
+// art_zan : 点赞总数,自增；
