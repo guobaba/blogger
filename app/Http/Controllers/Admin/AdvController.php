@@ -76,10 +76,10 @@ class AdvController extends Controller
         $input['adv_time'] = time();
 //        dd($input);
 
-//        通过articel模型的create  or   save 添加到数据库
+//        通过adv模型的create添加到数据库
         $re = Adv::create($input);
 
-//        如果成功跳转到文章列表页  如果失败 返回添加页面
+//        如果成功跳转到列表页  如果失败 返回添加页面
         if($re){
             return redirect('admin/adv');
         }else{
@@ -125,7 +125,7 @@ class AdvController extends Controller
         $re = $adv->update($input);
 
         if($re){
-//            如果添加成功跳转到分类列表页
+//            如果添加成功跳转到列表页
             return redirect('admin/adv');
         }else{
             return back()->with('error','修改失败')->withInput();

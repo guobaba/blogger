@@ -22,10 +22,10 @@ class NavController extends Controller
             $key = trim($request->input('keywords'));
 
             // dd($key);
-            $nav = Nav::where('nav_name','like',"%".$key."%")->paginate(2);
+            $nav = Nav::where('nav_name','like',"%".$key."%")->paginate(10);
             return view('admin.nav.index',['data'=>$nav,'key'=>$key]);
         }else{
-            $data = Nav::orderBy('nav_order','asc')->paginate(2);
+            $data = Nav::orderBy('nav_order','asc')->paginate(10);
             return view('admin.nav.index',compact('data'));
         }
     }

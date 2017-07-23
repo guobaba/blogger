@@ -170,4 +170,13 @@ class ArticleController extends Controller
         }
         return $data;
     }
+
+
+    
+    
+
+
 }
+
+
+// art_zan : 点赞总数,自增；

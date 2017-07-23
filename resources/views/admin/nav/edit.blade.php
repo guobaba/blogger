@@ -13,7 +13,7 @@
                 <tr>
                     <th>名称：</th>
                     <td>
-                        <input type="text" name="nav_name" value="{{$data->nav_name}}">
+                        <input type="text" id="nn" name="nav_name" value="{{$data->nav_name}}">
                     </td>
                 </tr>
                 <tr>
@@ -44,5 +44,15 @@
                 </tbody>
             </table>
         </form>
+         <script type="text/javascript">
+
+            $('#nn').blur(function(){
+                var x1 = $('#nn').val();
+                if(!x1){
+                    alert('请输入导航名称');
+                }
+            });
+            
+        </script>
     </div>
 @endsection

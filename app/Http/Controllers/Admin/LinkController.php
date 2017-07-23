@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
+use Validator;
 
 class LinkController extends Controller
 {
@@ -27,6 +28,7 @@ class LinkController extends Controller
 
 //        先找到要修改排序的记录
         $input =  $request->except('_token');
+
 
         $link = Link::where('link_id',$input['link_id'])->first();
 
@@ -48,6 +50,7 @@ class LinkController extends Controller
         return $data;
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -68,19 +71,42 @@ class LinkController extends Controller
     {
         //   获取请求中的所有数据，除了_token
         $input = Input::except('_token');
-//        dd($input);
+       
+         $role =[
+            'link_name'=>'required|between:3,18',
+            'link_url'=>'required|between:3,18',
+            'link_url' => array('regex:/(http?|ftp?):\/\/(www)\.([^\.\/]+)\.(com|cn)(\/[\w-\.\/\?\%\&\=]*)?/i'),
+            'link_order' => 'required|regex:[[0-9]+]'
+            
+        ];
+        // 提示信息
+        $mess=[
+            'link_name.required'=>'必须输入名称',
+            'link_name.between'=>'用户名长度必须在3-18位之间',
+            'link_url.required'=>'必须输入链接',
+            'link_url.regex' => '链接格式不正确,正确格式为http://www.***.com或者http://www.***.cn',
+            'link_url.between'=>'链接长度必须在3-18位之间',
+            'link_order.required' => '排序值不能为空',
+            'link_order.regex' => '排序值请输入数字',
+        ];
+//        表单验证
+        $validator = Validator::make($input,$role,$mess);
+        if($validator->passes()){
 
-//        通过articel模型的create  or   save 添加到数据库
+//        通过link模型的create 添加到数据库
         $re = Link::create($input);
 
-//        如果成功跳转到文章列表页  如果失败 返回添加页面
+//        如果成功跳转到列表页  如果失败 返回添加页面
         if($re){
             return redirect('admin/link');
         }else{
             return back()->with('error','添加失败');
         }
+    }else{
+        return back()->witherrors($validator);
     }
-
+    
+}
     /**
      * Display the specified resource.
      *
@@ -115,17 +141,45 @@ class LinkController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $link = Link::find($id);
-        //从请求中获取传过来的数据
-        $input = Input::except('_token','_method');
-        $re = $link->update($input);
+        //   获取请求中的所有数据，除了_token
+        $input = Input::except('_token');
+       
+        $role =[
+            'link_name'=>'required|min:3',
+            'link_url'=>'required|min:3',
+            'link_url' => array('regex:/(http?|ftp?):\/\/(www)\.([^\.\/]+)\.(com|cn)(\/[\w-\.\/\?\%\&\=]*)?/i'),
+            'link_order' => 'required|regex:[[0-9]+]'
+            
+        ];
+        // 提示信息
+        $mess=[
+            'link_name.required'=>'必须输入名称',
+            'link_name.between'=>'用户名长度必须在3位以上',
+            'link_url.required'=>'必须输入链接',
+            'link_url.regex' => '链接格式不正确,正确格式为http://www.***.com或者http://www.***.cn',
+            'link_url.between'=>'链接长度必须在3位以上',
+            'link_order.required' => '排序值不能为空',
+            'link_order.regex' => '排序值请输入数字',
+        ];
+//        表单验证
+        $validator = Validator::make($input,$role,$mess);
+        if($validator->passes()){
+            $link = Link::find($id);
+            //从请求中获取传过来的数据
+            $input = Input::except('_token','_method');
+            $re = $link->update($input);
 
-        if($re){
-//            如果添加成功跳转到分类列表页
-            return redirect('admin/link');
+            if($re){
+    //            如果添加成功跳转到分类列表页
+                return redirect('admin/link');
+            }else{
+                return back()->with('error','修改失败')->withInput();
+            }
         }else{
-            return back()->with('error','修改失败')->withInput();
+            return back()->witherrors($validator);
         }
+
+        
     }
 
     /**
