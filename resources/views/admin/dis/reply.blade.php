@@ -21,7 +21,7 @@
     <!--结果集标题与导航组件 结束-->
     
         
-        <form action="{{url('admin/dis/reply/'.$dis->dis_id)}}" method="post">
+        <form action="{{url('admin/dis/reply/'.$yonghu->y_id)}}" method="post">
             <table class="add_tab">
                 <tbody>
                 
@@ -34,7 +34,8 @@
                     <tr>
                     <th>用户评论：</th>
                     <td >
-                        <textarea name="dis_content" style="background-color:#ccc " readonly="readonly" >{!!$dis->dis_content!!}</textarea>
+                        <textarea name="y_dis" style="background-color:#ccc " readonly="readonly" >{!! $yonghu->y_dis !!}</textarea>
+
                     </td>
                 </tr>
                     
@@ -44,7 +45,7 @@
                         <script type="text/javascript" charset="utf-8" src="{{asset('ueditor/ueditor.config.js')}}"></script>
                         <script type="text/javascript" charset="utf-8" src="{{asset('ueditor/ueditor.all.min.js')}}"> </script>
                         <script type="text/javascript" charset="utf-8" src="{{asset('ueditor/lang/zh-cn/zh-cn.js')}}"></script>
-                        <script id="editor" type="text/plain" name="dis_reply" style="width:590px;height:200px;"></script>
+                        <script id="editor" type="text/plain" name="y_re" style="width:590px;height:200px;"></script>
                         <script type="text/javascript">
                             var ue = UE.getEditor('editor');
                         </script>

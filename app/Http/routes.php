@@ -17,6 +17,8 @@ Route::controller('/home/zhuce','Home\ZhuceController');
 Route::controller('/home/login','Home\LoginController');
 // 订阅
 Route::post('/home/subscibe','Home\SubscibeController@subscibe');
+//用户留言
+Route::controller('/home/liuyan','Home\LiuyanController');
 
 // 退订
 Route::controller('/subscibe','Home\SubscibeController');
@@ -84,7 +86,9 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>['admin.login
 
     //留言管理
     Route::get('dis/index','DisController@index');
+    Route::get('dis/yonghu','DisController@yonghu');
     Route::any('dis/delete/{id}','DisController@delete');
+   
     Route::any('dis/insert/{id}','DisController@insert');
     Route::any('dis/reply/{id}','DisController@reply');
 
