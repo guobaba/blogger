@@ -20,12 +20,15 @@ class PersonalController extends Controller
     public function index()
     {
         $name = session('user')->user_name;
-        $user= User::join('personal','user.user_id','=','personal.user_id')->where('user_name',$name)->first();
+        //dd($name);
+       
 
+        $user= User::join('personal','user.user_id','=','personal.user_id')->where('user_name',$name)->first();
+       // dd($user);
 
 //       dd($user);
         $personal= $user->personal()->first();//$user['user_id']
-//       dd($personal);
+       //dd($personal);
         return view('admin.personal.index',compact('personal'));
     }
 

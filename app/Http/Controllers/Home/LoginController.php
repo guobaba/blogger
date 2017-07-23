@@ -26,32 +26,50 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+//     public function postDologin(Request $request)
+//     {
+
+//         $data = $request -> except('_token');
+//         //查询
+//         $res = DB::table('user')->where('user_email',$data['user_email'])->first();
+
+//         if(!$res){
+//             return back() -> with('error','该邮箱不存在');
+//         }else{
+//             //判断邮箱状态
+//             //if(!$res['user_status']== 1){
+//             //  return back() -> with('error','该邮箱未激活');
+//             //}
+//             //用户名存在  检测密码
+//             if(Hash::check($data['user_pass'],$res['user_pass'])){
+//                 session(['user_home'=>$res]);
+// //                if($res['user_status'] != 1){
+// //                     return back()->with('error','邮箱未激活,请激活!');
+// //                }
+//                 return redirect('/');
+//             }else{
+//                 return back() -> with('error','邮箱或密码错误');
+//             }
+//         }
+
+//     }
+
     public function postDologin(Request $request)
     {
-
-        $data = $request -> except('_token');
-        //查询
-        $res = DB::table('user')->where('user_email',$data['user_email'])->first();
-
-        if(!$res){
-            return back() -> with('error','该邮箱不存在');
-        }else{
-            //判断邮箱状态
-            if(!$res['user_status']== 1){
-                return back() -> with('error','该邮箱未激活');
-            }
-            //用户名存在  检测密码
-            if(Hash::check($data['user_pass'],$res['user_pass'])){
+        $user=$request->input('user');
+        $password=$request->input('password');
+        $res=DB::table('user')->where('user_email',$user)->first();
+        if($res){
+            if(Hash::check($password,$res['user_pass'])){
+                //用户信息存入session
                 session(['user_home'=>$res]);
-//                if($res['user_status'] != 1){
-//                     return back()->with('error','邮箱未激活,请激活!');
-//                }
-                return redirect('/');
+                echo 1;//登录成功
             }else{
-                return back() -> with('error','邮箱或密码错误');
+                echo 2;//密码错误
             }
+        }else{
+            echo 3;//用户名不存在
         }
-
     }
 
     //退出登录
@@ -59,6 +77,7 @@ class LoginController extends Controller
         \session(['user_home'=>null]);
         return redirect('/');
     }
+
 
   
 }

@@ -16,9 +16,10 @@ Route::controller('/home/zhuce','Home\ZhuceController');
 //前台登录
 Route::controller('/home/login','Home\LoginController');
 
-
-// 前台路由
-Route::group(['namespace'=>'Home'],function(){
+//个人信息页路由
+Route::controller('/home/info','Home\InfoController');
+    // 前台路由
+    Route::group(['namespace'=>'Home'],function(){
     // 前台首页
 	Route::get('/','IndexController@index');
 	// 列表页路由

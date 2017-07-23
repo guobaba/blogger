@@ -21,7 +21,7 @@ class CommonController  extends Controller
         $aa = Cate::where('cate_pid',$cate_id)->get();
 
 //        导航数据   $nav  7
-        $nav =  Nav::orderBy('nav_order','asc')->take(2)->get();
+        $nav =  Nav::orderBy('nav_order','asc')->take(10)->get();
 //        最新文章   $new 8
         $new = Article::orderBy('art_time','desc')->take(5)->get();
 //        点击排行  $hot 5
