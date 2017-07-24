@@ -18,10 +18,18 @@
           @foreach($yonghu as $k=>$v)
            <article class="am-article blog-article-p">
             <div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">
-                <img src="" alt="" class="am-u-sm-12">
+                <img id="ss" src="/uploads/201707201642239891.jpg" alt="" class="am-u-sm-12">
             </div>
             <div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
-               
+                <style>
+                    #ss{
+                        width:200px;
+                        height:140px;
+                        border-radius:100%;
+
+                    }
+
+                </style>
                
                 <h3>留言人：{{$v->user_name}}</h>
                  <span>留言时间：{{date('Y-m-d H:i:s',$v->y_time)}}</span>
@@ -104,7 +112,7 @@
     <div class="am-u-md-4 am-u-sm-12 blog-sidebar">
         <div class="blog-sidebar-widget blog-bor">
             <h2 class="blog-text-center blog-title"><span>About ME</span></h2>
-            <img src="assets/i/f14.jpg" alt="about me" class="blog-entry-img" >
+            <img src="/home/assets/i/f14.jpg" alt="about me" class="blog-entry-img" >
             <p>妹纸</p>
             <p>
         我是妹子UI，中国首个开源 HTML5 跨屏前端框架

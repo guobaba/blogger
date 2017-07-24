@@ -39,10 +39,9 @@ class IndexController extends CommonController
         if(session('user'))
         {
           $per = personal::where('user_id',session('user')->toArray()['user_id'])->get()->toArray();
-
         }
        
-        return view('home.index',compact('pic','art','link','per','arts','aa'));    
+        return view('home.index',compact('pic','art','link','per','arts','aa'));
 
     }
 
@@ -53,7 +52,7 @@ class IndexController extends CommonController
      */
     public function cate(Request $request)
     {
-
+        $arr=[];
         if($request->has('search'))
         {
             $id=empty($request->input('id'))?'':$request->input('id');
@@ -92,7 +91,7 @@ class IndexController extends CommonController
                 $per = personal::where('user_id',session('user')->toArray()['user_id'])->get()->toArray();
 
             }
-
+            $arr=['id'=>$id];
         }
 
         //展示分类视图,将查出的数据绑定到视图上
@@ -154,23 +153,29 @@ class IndexController extends CommonController
             }
         }   
         
-      public function zan(){
+      public function zan()
+      {
+          if (!session('user_home')) {
+              return "你好，请先登录！";
+          }
+          $id = Input::except('_token');
+          $id['user_id'] = session('user_home')['user_id'];
+          $res = \DB::table('zan')->insert($id);
+          // dd($res);
+          if ($res) {
+              \DB::table('article')->where('art_id', $id['art_id'])->increment('art_zan');
+              return '点赞成功';
+          } else {
+              return "点赞失败";
 
-        if(!session('user_home')){
-          return "你好，请先登录！";
-        }
-        $id = Input::except('_token');
-        $id['user_id'] = session('user_home')['user_id'];
-        $res = \DB::table('zan')->insert($id);
-        // dd($res);
-        if($res){
-          \DB::table('article') -> where('art_id',$id['art_id']) -> increment('art_zan');
-          return '点赞成功';
-        }else{
-           return "点赞失败";
-
-        }
+          }
+      }
        
+    public function cang(){
+      dd(Input::except('_token'));
+        if(!session('user_home')){
+            return "你好，请先登录！";
+          }
     }
       
  // 判断同一个art_id下，SESSION中的user_id是否等于$zan表里面的user_id。

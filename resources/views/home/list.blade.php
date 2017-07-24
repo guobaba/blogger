@@ -3,14 +3,14 @@
 @section('content')
 <!-- content srart -->
 <style>
-    ol, ul li {
+    .pagination li {
         text-align: center;
         float: left;
         list-style: none;
-        padding-left: 2em;
+
         padding: 0;
-        margin-left: 8px;
-        width: 100px;
+        margin-left: 10px;
+        width: 25px;
         height: 25px;
         background: #f5f4f4;
     }

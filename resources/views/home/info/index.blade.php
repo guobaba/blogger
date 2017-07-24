@@ -25,7 +25,7 @@
 						</div>
 						<hr/>
 						<div class="info-main">
-							<form class="am-form am-form-horizontal" action="{{url('home/info')}}" method="post">
+							<form class="am-form am-form-horizontal" action="{{url('home/info/xiugai')}}" method="post">
 								{{ csrf_field() }}
 
 								<div class="am-form-group">
@@ -47,13 +47,13 @@
 									<label class="am-form-label">性别</label>
 									<div class="am-form-content sex">
 										<label class="am-radio-inline">
-											<input type="radio" class="det_sex" value="1" @if($details['det_sex'] == 1) checked @endif data-am-ucheck> 男
+											<input type="radio" class="det_sex" name='sex' value="1" @if($details['det_sex'] == 1) checked @endif data-am-ucheck> 男
 										</label>
 										<label class="am-radio-inline">
-											<input type="radio" class="det_sex" value="2" @if($details['det_sex'] == 2) checked @endif data-am-ucheck> 女
+											<input type="radio" class="det_sex" name='sex' value="2" @if($details['det_sex'] == 2) checked @endif data-am-ucheck> 女
 										</label>
 										<label class="am-radio-inline">
-											<input type="radio" class="det_sex" value="3" @if($details['det_sex'] == 3) checked @endif data-am-ucheck> 保密
+											<input type="radio" class="det_sex" name='sex' value="3" @if($details['det_sex'] == 3) checked @endif data-am-ucheck> 保密
 										</label>
 									</div>
 								</div>
@@ -95,7 +95,7 @@
 						<ul>
 							<li> <a href="#">个人资料</a></li>
 							<li> <a href="{{url('home/info/repass')}}">修改密码</a></li>
-							<li> <a href="#">我的收藏</a></li>
+							
 						</ul>
 					</li>
 				</ul>
