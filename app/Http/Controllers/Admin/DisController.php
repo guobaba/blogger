@@ -63,8 +63,7 @@ class DisController extends Controller
 
    public function insert($id){
     
-        $yonghu = Yonghu::where('y_id',$id)->first();
-
+       $yonghu = Yonghu::where('y_id',$id)->first();
 
         return view('admin.dis.reply',['yonghu'=>$yonghu]);
 

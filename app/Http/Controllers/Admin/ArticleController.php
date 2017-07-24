@@ -98,8 +98,8 @@ class ArticleController extends Controller
                 $token=2;
                 self::mailxxoo($email,$id,$token);
             }
-            return 1;
-            //return redirect('admin/article');
+
+            return redirect('admin/article');
         }else{
             return back()->with('error','添加失败');
         }

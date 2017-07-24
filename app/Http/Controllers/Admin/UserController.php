@@ -24,9 +24,11 @@ class UserController extends Controller
         $user = User::find($id);
 
         if ($user['user_status'] == 1){
-            $status = $user->update(['user_status'=>"0"]);
+           $status = $user->update(['user_status'=>"0"]);
+
         }else if ($user['user_status'] == 0){
             $status = $user->update(['user_status'=>"1"]);
+
         }
 
 //        \DB::insert('insert into blog_role_user (user_id, role_id) values (?, ?)', [$input['user_id'], $v]);

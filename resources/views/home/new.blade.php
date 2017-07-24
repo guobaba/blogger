@@ -1,6 +1,10 @@
 @extends('layouts.home')
 @section('content')
 <!-- content srart -->
+@if(session('error'))
+    <span>{{session('error')}}</span>
+
+@endif
 <div class="am-g am-g-fixed blog-fixed blog-content">
     <div class="am-u-sm-12">
       <article class="am-article blog-article-p">
@@ -159,7 +163,7 @@
                           
         <button id="tjiao" href="javascript:;" art_id="{{$art->art_id}}" style="background:orange">提  交</button>
                   
-           
+
                    
 
                 
@@ -184,7 +188,7 @@
             
               $.post("{{url('/dis/')}}/"+id,{'_token':"{{csrf_token()}}",'dis_content':form,'art_id':art_id,'re_id':id},function(data){
                     location.href = location.href;
-                    alert(data);                     
+                    alert(data);
               })
        })
 

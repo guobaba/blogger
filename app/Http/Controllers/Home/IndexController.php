@@ -141,6 +141,12 @@ class IndexController extends CommonController
         if(!session('user_home')){
           return "你好，请先登录！";
         }
+//        return session('user_home');
+        $data = User::find(session('user_home')['user_id']);
+
+        if($data['user_status'] == '0'){
+            return '您被禁言';
+        }
         $input = Input::except('_token');
         $input['dis_time'] =time();
         $input['user_id'] =session('user_home')['user_id'];
